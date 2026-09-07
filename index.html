@@ -1600,30 +1600,21 @@
             }
 
 
-            /* PROMOÇÕES — DESLIZA PARA O LADO */
+            /* PROMOÇÕES — VERTICAL (DE CUMPRIDO) */
 
             .promo-grid {
                 display: flex;
-                overflow-x: auto;
-                overflow-y: hidden;
-                gap: 14px;
+                flex-direction: column;
+                gap: 16px;
                 padding: 4px 18px 12px;
                 max-width: none;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .promo-grid::-webkit-scrollbar {
-                display: none;
             }
 
             .promo-card {
-                flex: 0 0 82%;
-                min-height: 205px;
+                width: 100%;
+                min-height: auto;
                 padding: 22px;
                 border-radius: 18px;
-                scroll-snap-align: start;
             }
 
             .promo-card h3 {
@@ -1669,31 +1660,21 @@
             }
 
 
-            /* PRODUTOS — CARDS HORIZONTAIS */
+            /* PRODUTOS — VERTICAL (DE CUMPRIDO) */
 
             .produtos {
                 display: flex;
-                overflow-x: auto;
-                overflow-y: hidden;
-                gap: 13px;
+                flex-direction: column;
+                gap: 16px;
                 padding: 3px 18px 12px;
-                grid-template-columns: none;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-
-            .produtos::-webkit-scrollbar {
-                display: none;
             }
 
             .produto {
-                flex: 0 0 72%;
-                min-width: 72%;
+                width: 100%;
+                min-width: 100%;
                 display: flex;
                 flex-direction: column;
                 border-radius: 17px;
-                scroll-snap-align: start;
             }
 
             .produto-img {
@@ -1711,29 +1692,29 @@
             }
 
             .produto-info h3 {
-                font-size: 15px;
+                font-size: 16px;
                 line-height: 1.25;
                 margin-bottom: 6px;
             }
 
             .produto-info p {
-                min-height: 48px;
-                font-size: 11px;
+                min-height: auto;
+                font-size: 12px;
                 line-height: 1.4;
             }
 
             .produto-bottom {
-                margin-top: auto;
-                padding-top: 14px;
+                margin-top: 14px;
+                padding-top: 10px;
             }
 
             .preco {
-                font-size: 17px;
+                font-size: 18px;
             }
 
             .btn-add {
-                width: 38px;
-                height: 38px;
+                width: 40px;
+                height: 40px;
                 flex-shrink: 0;
             }
 
@@ -1842,15 +1823,6 @@
                 font-size: 120px;
             }
 
-            .promo-card {
-                flex-basis: 86%;
-            }
-
-            .produto {
-                flex-basis: 82%;
-                min-width: 82%;
-            }
-
             .produto-img {
                 height: 135px;
                 min-height: 135px;
@@ -1885,15 +1857,6 @@
 
             .hero h1 {
                 font-size: 38px;
-            }
-
-            .produto {
-                flex-basis: 88%;
-                min-width: 88%;
-            }
-
-            .promo-card {
-                flex-basis: 90%;
             }
         }
 
@@ -1989,7 +1952,7 @@
             ingredientes selecionados e aquele
             toque especial da Hot Pizza.
         </p>
-</div>
+    </div>
 
 
     <div class="hero-pizza">
@@ -2041,15 +2004,14 @@
                 Confira no pedido
             </div>
 
-        
-                <button
-                    class="promo-buy-btn"
-                    onclick="comprarPromocao(this)"
-                    type="button"
-                >
-                    🛒 COMPRAR PROMOÇÃO
-                </button>
-</div>
+            <button
+                class="promo-buy-btn"
+                onclick="comprarPromocao(this)"
+                type="button"
+            >
+                🛒 COMPRAR PROMOÇÃO
+            </button>
+        </div>
 
 
         <div class="promo-card">
@@ -2071,15 +2033,14 @@
                 Consulte
             </div>
 
-        
-<button
-                            class="promo-buy-btn"
-                            onclick="comprarPromocao(this)"
-                            type="button"
-                        >
-                            🛒 COMPRAR PROMOÇÃO
-                        </button>
-</div>
+            <button
+                class="promo-buy-btn"
+                onclick="comprarPromocao(this)"
+                type="button"
+            >
+                🛒 COMPRAR PROMOÇÃO
+            </button>
+        </div>
 
 
         <div class="promo-card">
@@ -2101,17 +2062,16 @@
                 A partir de R$ 50,00
             </div>
 
+            <button
+                class="promo-buy-btn"
+                onclick="comprarPromocao(this)"
+                type="button"
+            >
+                🛒 COMPRAR PROMOÇÃO
+            </button>
         </div>
 
-    
-<button
-                            class="promo-buy-btn"
-                            onclick="comprarPromocao(this)"
-                            type="button"
-                        >
-                            🛒 COMPRAR PROMOÇÃO
-                        </button>
-</div>
+    </div>
 
 </section>
 
@@ -2853,36 +2813,30 @@
        PRODUTOS
     ===================================================== */
 
-    // =====================================================
-// 🍕 PREÇOS DAS PIZZAS — ALTERE AQUI
-// Formato: sabor: { pequena: VALOR, grande: VALOR }
-// Na GRANDE com 2 sabores, será usado automaticamente
-// o valor do sabor MAIS CARO.
-// =====================================================
-const PRECOS_PIZZAS = {
-    "Atum": { pequena: 60.00, grande: 65.00 },
-    "Bauru": { pequena: 55.00, grande: 60.00 },
-    "Bacon": { pequena: 55.00, grande: 60.00 },
-    "Brócolis Bacon": { pequena: 60.00, grande: 65.00 },
-    "Calabresa": { pequena: 50.00, grande: 55.00 },
-    "Frango com Catupiry": { pequena: 60.00, grande: 65.00 },
-    "Lombinho com Catupiry": { pequena: 60.00, grande: 65.00 },
-    "LBB": { pequena: 60.00, grande: 65.00 },
-    "Mussarela": { pequena: 50.00, grande: 55.00 },
-    "Margherita": { pequena: 55.00, grande: 60.00 },
-    "Pizza do Chefe": { pequena: 60.00, grande: 65.00 },
-    "Portuguesa": { pequena: 60.00, grande: 65.00 },
-    "Pepperoni": { pequena: 65.00, grande: 70.00 },
-    "Quatro Queijos": { pequena: 67.00, grande: 72.00 },
-    "Quatro Carnes": { pequena: 65.00, grande: 70.00 },
-    "Lombinho da Casa": { pequena: 60.00, grande: 65.00 },
-    "Mussarela e Parmesão": { pequena: 60.00, grande: 65.00 },
-    "Brócolis Bacon Catupiry": { pequena: 65.00, grande: 70.00 },
-    "Cinco Queijos": { pequena: 70.00, grande: 75.00 },
-    "Frango Bacon Catupiry": { pequena: 65.00, grande: 70.00 },
-};
+    const PRECOS_PIZZAS = {
+        "Atum": { pequena: 60.00, grande: 65.00 },
+        "Bauru": { pequena: 55.00, grande: 60.00 },
+        "Bacon": { pequena: 55.00, grande: 60.00 },
+        "Brócolis Bacon": { pequena: 60.00, grande: 65.00 },
+        "Calabresa": { pequena: 50.00, grande: 55.00 },
+        "Frango com Catupiry": { pequena: 60.00, grande: 65.00 },
+        "Lombinho com Catupiry": { pequena: 60.00, grande: 65.00 },
+        "LBB": { pequena: 60.00, grande: 65.00 },
+        "Mussarela": { pequena: 50.00, grande: 55.00 },
+        "Margherita": { pequena: 55.00, grande: 60.00 },
+        "Pizza do Chefe": { pequena: 60.00, grande: 65.00 },
+        "Portuguesa": { pequena: 60.00, grande: 65.00 },
+        "Pepperoni": { pequena: 65.00, grande: 70.00 },
+        "Quatro Queijos": { pequena: 67.00, grande: 72.00 },
+        "Quatro Carnes": { pequena: 65.00, grande: 70.00 },
+        "Lombinho da Casa": { pequena: 60.00, grande: 65.00 },
+        "Mussarela e Parmesão": { pequena: 60.00, grande: 65.00 },
+        "Brócolis Bacon Catupiry": { pequena: 65.00, grande: 70.00 },
+        "Cinco Queijos": { pequena: 70.00, grande: 75.00 },
+        "Frango Bacon Catupiry": { pequena: 65.00, grande: 70.00 },
+    };
 
-const pizzasSalgadas = [
+    const pizzasSalgadas = [
 
         {
             nome: "Atum",
@@ -3310,13 +3264,11 @@ const pizzasSalgadas = [
         ).value =
             produtoSelecionado.nome;
 
-        // Na pizza grande, o sabor escolhido no card já entra como 1º sabor.
         document.getElementById(
             "saborGrande1"
         ).value =
             produtoSelecionado.nome;
 
-        // Deixa o 2º sabor sem escolha para facilitar a seleção do cliente.
         const segundo = document.getElementById("saborGrande2");
         const placeholder = document.createElement("option");
         placeholder.value = "";
@@ -3412,7 +3364,7 @@ const pizzasSalgadas = [
                 ).value;
 
             texto +=
-                `🍕 Grande — ${sabor1} + ${sabor2}`;
+                `🍕 Grande — ${sabor1} + ${sabor2 || 'A escolher'}`;
 
         }
 
@@ -3491,10 +3443,11 @@ const pizzasSalgadas = [
         let precoPizza = 0;
 
         if (tamanho === "pequena") {
-            // Pequena: usa o preço da pequena do sabor escolhido.
+            sabor1 = document.getElementById("saborPequena").value;
             precoPizza = PRECOS_PIZZAS[sabor1]?.pequena ?? 0;
         } else {
-            // Grande com 2 sabores: sempre cobra o sabor mais caro.
+            sabor1 = document.getElementById("saborGrande1").value;
+            sabor2 = document.getElementById("saborGrande2").value;
             const preco1 = PRECOS_PIZZAS[sabor1]?.grande ?? 0;
             const preco2 = PRECOS_PIZZAS[sabor2]?.grande ?? 0;
             precoPizza = Math.max(preco1, preco2);
@@ -3525,7 +3478,7 @@ const pizzasSalgadas = [
             nome:
                 tamanho === "pequena"
                     ? sabor1
-                    : `${sabor1} + ${sabor2}`,
+                    : `${sabor1}${sabor2 ? ' + ' + sabor2 : ''}`,
 
             tamanho,
 
@@ -4299,12 +4252,6 @@ const pizzasSalgadas = [
 
         }
 
-
-        /*
-            ATENÇÃO:
-            Troque o número abaixo pelo WhatsApp
-            que receberá os pedidos.
-        */
 
         const telefone =
             "5517991884163";
