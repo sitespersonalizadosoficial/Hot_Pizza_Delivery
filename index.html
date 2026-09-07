@@ -1356,6 +1356,31 @@
         }
 
 
+
+        .promo-buy-btn {
+            width: 100%;
+            margin-top: 18px;
+            padding: 13px 16px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ffcc00, #ff3c00);
+            color: #111;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: .25s;
+            box-shadow: 0 5px 15px rgba(255, 60, 0, .22);
+        }
+
+        .promo-buy-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        .promo-buy-btn:active {
+            transform: scale(.98);
+        }
+
         /* =====================================================
            RESPONSIVO — CELULAR
         ===================================================== */
@@ -1900,11 +1925,11 @@
 
     <nav>
 
-        <a href="#salgadas">
+        <a href="#salgadas" onclick="mostrarCategoria('salgadas'); return false;">
             🍕 Salgadas
         </a>
 
-        <a href="#doces">
+        <a href="#doces" onclick="mostrarCategoria('doces'); return false;">
             🍫 Doces
         </a>
 
@@ -1964,26 +1989,7 @@
             ingredientes selecionados e aquele
             toque especial da Hot Pizza.
         </p>
-
-        <div class="hero-buttons">
-
-            <button
-                class="btn-primary"
-                onclick="document.getElementById('salgadas').scrollIntoView()"
-            >
-                🍕 PEDIR AGORA
-            </button>
-
-            <button
-                class="btn-secondary"
-                onclick="document.getElementById('promocoes').scrollIntoView()"
-            >
-                🔥 Ver promoções
-            </button>
-
-        </div>
-
-    </div>
+</div>
 
 
     <div class="hero-pizza">
@@ -2035,7 +2041,15 @@
                 Confira no pedido
             </div>
 
-        </div>
+        
+                <button
+                    class="promo-buy-btn"
+                    onclick="comprarPromocao(this)"
+                    type="button"
+                >
+                    🛒 COMPRAR PROMOÇÃO
+                </button>
+</div>
 
 
         <div class="promo-card">
@@ -2057,7 +2071,15 @@
                 Consulte
             </div>
 
-        </div>
+        
+<button
+                            class="promo-buy-btn"
+                            onclick="comprarPromocao(this)"
+                            type="button"
+                        >
+                            🛒 COMPRAR PROMOÇÃO
+                        </button>
+</div>
 
 
         <div class="promo-card">
@@ -2081,7 +2103,15 @@
 
         </div>
 
-    </div>
+    
+<button
+                            class="promo-buy-btn"
+                            onclick="comprarPromocao(this)"
+                            type="button"
+                        >
+                            🛒 COMPRAR PROMOÇÃO
+                        </button>
+</div>
 
 </section>
 
@@ -3557,6 +3587,47 @@ const pizzasSalgadas = [
     }
 
 
+
+    /* =====================================================
+       FILTRO DAS CATEGORIAS
+    ===================================================== */
+
+    function mostrarCategoria(categoria) {
+        const salgadas = document.getElementById("salgadas");
+        const doces = document.getElementById("doces");
+        const bebidas = document.getElementById("bebidas");
+        const promocoes = document.getElementById("promocoes");
+
+        if (!salgadas || !doces) return;
+
+        if (categoria === "salgadas") {
+            salgadas.style.display = "";
+            doces.style.display = "none";
+            if (bebidas) bebidas.style.display = "none";
+            if (promocoes) promocoes.style.display = "none";
+
+            salgadas.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        if (categoria === "doces") {
+            salgadas.style.display = "none";
+            doces.style.display = "";
+            if (bebidas) bebidas.style.display = "none";
+            if (promocoes) promocoes.style.display = "none";
+
+            doces.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }
+
+    function mostrarTodasCategorias() {
+        const secoes = ["salgadas", "doces", "bebidas", "promocoes"];
+
+        secoes.forEach(id => {
+            const secao = document.getElementById(id);
+            if (secao) secao.style.display = "";
+        });
+    }
+
     /* =====================================================
        CARRINHO
     ===================================================== */
@@ -3657,28 +3728,28 @@ const pizzasSalgadas = [
 
                     if (item.tipo === "pizza") {
 
-                        detalhes =
-                            `${item.tamanho === "pequena"
+                        const tamanhoTexto =
+                            item.tamanho === "pequena"
                                 ? "Pequena"
-                                : "Grande"}<br>
-                            🍕 ${item.sabor1}`;
+                                : "Grande";
+
+                        detalhes =
+                            `<strong>🍕 Tamanho: ${tamanhoTexto}</strong>`;
+
+                        detalhes +=
+                            `<br>🍕 <strong>Sabor:</strong> ${item.sabor1 || "Não informado"}`;
 
                         if (item.sabor2) {
-
                             detalhes +=
-                                ` + ${item.sabor2}`;
-
+                                `<br>🍕 <strong>2º sabor:</strong> ${item.sabor2}`;
                         }
 
                         detalhes +=
-                            `<br>🧀 ${item.borda}`;
-
+                            `<br>🧀 <strong>Borda:</strong> ${item.borda || "Sem borda"}`;
 
                         if (item.observacao) {
-
                             detalhes +=
-                                `<br>📝 ${item.observacao}`;
-
+                                `<br>📝 <strong>Obs.:</strong> ${item.observacao}`;
                         }
 
                     }
@@ -4159,10 +4230,21 @@ const pizzasSalgadas = [
                 if (item.tipo === "pizza") {
 
                     mensagem +=
+                        `%0A   🍕 Sabor 1: ${
+                            item.sabor1 || "Não informado"
+                        }`;
+
+                    if (item.sabor2) {
+                        mensagem +=
+                            `%0A   🍕 Sabor 2: ${
+                                item.sabor2
+                            }`;
+                    }
+
+                    mensagem +=
                         `%0A   Tamanho: ${
                             item.tamanho
                         }`;
-
 
                     mensagem +=
                         `%0A   Borda: ${
@@ -4281,6 +4363,8 @@ const pizzasSalgadas = [
         }
     );
 
+
+    mostrarTodasCategorias();
 </script>
 
 </body>
