@@ -1,0 +1,3940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hot Pizza | O sabor que esquenta sua noite</title>
+
+    <meta name="description" content="Hot Pizza - Pizzas, bebidas e muito sabor. Faça seu pedido online.">
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 82px;
+
+            background: rgba(8, 8, 8, 0.96);
+
+            border-bottom: 1px solid rgba(255, 60, 0, 0.25);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            z-index: 1000;
+
+            backdrop-filter: blur(12px);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            text-decoration: none;
+            color: white;
+
+            min-width: 180px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(circle at 50% 50%, #ffcc00 0 18%, transparent 19%),
+                linear-gradient(145deg, #ff3c00, #b40000);
+
+            border: 2px solid #ffb300;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 24px;
+
+            box-shadow: 0 0 18px rgba(255, 70, 0, .45);
+        }
+
+        .logo-text {
+            line-height: 1;
+        }
+
+        .logo-text strong {
+            display: block;
+
+            font-size: 25px;
+            font-weight: 900;
+
+            background: linear-gradient(90deg, #ffd000, #ff3b00);
+            -webkit-background-clip: text;
+            color: transparent;
+
+            letter-spacing: -1px;
+        }
+
+        .logo-text span {
+            display: block;
+
+            font-size: 9px;
+            letter-spacing: 4px;
+
+            color: #fff;
+
+            margin-top: 4px;
+        }
+
+
+        /* MENU */
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: .3s;
+
+            position: relative;
+        }
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: #ff3c00;
+
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #ff6a00;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* CARRINHO HEADER */
+
+        .cart-header {
+            position: relative;
+
+            width: 52px;
+            height: 52px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255, 255, 255, .15);
+
+            background: #161616;
+
+            color: white;
+
+            font-size: 22px;
+
+            transition: .3s;
+        }
+
+        .cart-header:hover {
+            transform: scale(1.06);
+
+            background: #ff3c00;
+
+            border-color: #ff3c00;
+        }
+
+        .cart-count {
+            position: absolute;
+
+            top: -4px;
+            right: -3px;
+
+            min-width: 22px;
+            height: 22px;
+
+            border-radius: 50%;
+
+            background: #ff3c00;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            border: 2px solid #0b0b0b;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            padding: 150px 6% 80px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 75% 40%, rgba(255, 55, 0, .25), transparent 32%),
+                radial-gradient(circle at 10% 80%, rgba(255, 160, 0, .08), transparent 25%),
+                #080808;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 60, 0, .08);
+
+            right: -250px;
+            top: 100px;
+
+            filter: blur(10px);
+        }
+
+        .hero-content {
+            width: 55%;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+
+            padding: 10px 18px;
+
+            border: 1px solid rgba(255, 75, 0, .5);
+
+            border-radius: 50px;
+
+            background: rgba(255, 60, 0, .08);
+
+            color: #ff9b00;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 7vw, 95px);
+
+            line-height: .9;
+
+            text-transform: uppercase;
+
+            font-weight: 1000;
+
+            letter-spacing: -5px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(
+                90deg,
+                #fff000,
+                #ff7700,
+                #ff2100
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 550px;
+
+            color: #bcbcbc;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #ff5a00,
+                #d50000
+            );
+
+            color: white;
+
+            padding: 16px 28px;
+
+            border-radius: 12px;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            box-shadow: 0 12px 30px rgba(255, 55, 0, .25);
+
+            transition: .3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 40px rgba(255, 55, 0, .4);
+        }
+
+        .btn-secondary {
+            border: 1px solid #444;
+
+            background: #151515;
+
+            color: white;
+
+            padding: 16px 28px;
+
+            border-radius: 12px;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ff4b00;
+            color: #ff7b00;
+        }
+
+
+        /* PIZZA HERO */
+
+        .hero-pizza {
+            position: absolute;
+
+            right: 5%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: min(510px, 43vw);
+            height: min(510px, 43vw);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: clamp(160px, 25vw, 300px);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 130, 0, .12),
+                    transparent 65%
+                );
+
+            animation: floatingPizza 4s ease-in-out infinite;
+        }
+
+        @keyframes floatingPizza {
+
+            0%,
+            100% {
+                transform: translateY(-50%) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(calc(-50% - 12px)) rotate(2deg);
+            }
+        }
+
+
+        /* =====================================================
+           PROMOÇÕES
+        ===================================================== */
+
+        .promocoes {
+            padding: 90px 6%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #0d0d0d,
+                    #130b08
+                );
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #ff5a00;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px, 5vw, 55px);
+
+            margin-top: 8px;
+
+            font-weight: 900;
+        }
+
+        .section-title h2 span {
+            font-size: inherit;
+            letter-spacing: normal;
+
+            background: linear-gradient(
+                90deg,
+                #ffcf00,
+                #ff4200
+            );
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+        .promo-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .promo-card {
+            min-height: 230px;
+
+            border-radius: 22px;
+
+            padding: 28px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1e1714,
+                    #100e0d
+                );
+
+            border: 1px solid rgba(255, 85, 0, .2);
+
+            transition: .35s;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(255, 85, 0, .7);
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, .35);
+        }
+
+        .promo-card::after {
+            content: "🔥";
+
+            position: absolute;
+
+            right: -10px;
+            bottom: -25px;
+
+            font-size: 130px;
+
+            opacity: .08;
+
+            transform: rotate(-15deg);
+        }
+
+        .promo-card .promo-label {
+            color: #ff6900;
+
+            font-weight: 900;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+        }
+
+        .promo-card h3 {
+            font-size: 25px;
+
+            margin: 14px 0 8px;
+        }
+
+        .promo-card p {
+            color: #aaa;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+        .promo-price {
+            margin-top: 20px;
+
+            color: #fff;
+
+            font-size: 25px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           CARDÁPIO
+        ===================================================== */
+
+        .cardapio {
+            padding: 90px 6%;
+
+            background: #080808;
+        }
+
+        .categoria {
+            max-width: 1250px;
+
+            margin: 0 auto 80px;
+        }
+
+        .categoria-header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 28px;
+
+            border-bottom: 1px solid #242424;
+
+            padding-bottom: 18px;
+        }
+
+        .categoria-header h2 {
+            font-size: 30px;
+        }
+
+        .categoria-header p {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* PRODUTOS */
+
+        .produtos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .produto {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            transition: .3s;
+
+            position: relative;
+        }
+
+        .produto:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255, 70, 0, .6);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, .35);
+        }
+
+        .produto-img {
+            height: 160px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 55%,
+                    rgba(255, 150, 0, .25),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    145deg,
+                    #251510,
+                    #121212
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 80px;
+        }
+
+        .produto-info {
+            padding: 18px;
+        }
+
+        .produto-info h3 {
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+        .produto-info p {
+            min-height: 42px;
+
+            color: #8e8e8e;
+
+            font-size: 12px;
+
+            line-height: 1.4;
+        }
+
+        .produto-bottom {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-top: 18px;
+        }
+
+        .preco {
+            color: #ff6800;
+
+            font-size: 19px;
+
+            font-weight: 900;
+        }
+
+        .btn-add {
+            border: none;
+
+            background: #ff4300;
+
+            color: white;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 11px;
+
+            font-size: 22px;
+
+            transition: .3s;
+        }
+
+        .btn-add:hover {
+            background: #ff6700;
+
+            transform: scale(1.08);
+        }
+
+
+        /* =====================================================
+           MODAL PERSONALIZAÇÃO
+        ===================================================== */
+
+        .modal-bg {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, .78);
+
+            backdrop-filter: blur(8px);
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 2000;
+        }
+
+        .modal-bg.active {
+            display: flex;
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 560px;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: #121212;
+
+            border: 1px solid #333;
+
+            border-radius: 24px;
+
+            padding: 28px;
+
+            position: relative;
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, .7);
+        }
+
+        .close-modal {
+            position: absolute;
+
+            top: 18px;
+            right: 18px;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            border: 1px solid #333;
+
+            background: #1b1b1b;
+
+            color: white;
+
+            font-size: 18px;
+        }
+
+        .modal h2 {
+            font-size: 27px;
+
+            margin-bottom: 5px;
+        }
+
+        .modal-subtitle {
+            color: #888;
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+        }
+
+        .grupo {
+            margin-bottom: 25px;
+        }
+
+        .grupo h3 {
+            font-size: 15px;
+
+            margin-bottom: 12px;
+        }
+
+        .opcoes {
+            display: grid;
+
+            gap: 9px;
+        }
+
+        .opcao {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 13px;
+
+            border: 1px solid #292929;
+
+            border-radius: 11px;
+
+            background: #171717;
+
+            cursor: pointer;
+
+            transition: .25s;
+        }
+
+        .opcao:hover {
+            border-color: #ff4b00;
+        }
+
+        .opcao input {
+            accent-color: #ff4b00;
+        }
+
+        .campo {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border-radius: 10px;
+
+            border: 1px solid #292929;
+
+            background: #171717;
+
+            color: white;
+
+            outline: none;
+        }
+
+        .campo:focus {
+            border-color: #ff4b00;
+        }
+
+        .sabores-grande {
+            display: none;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+        }
+
+        .sabores-grande.active {
+            display: grid;
+        }
+
+        .resumo-personalizacao {
+            padding: 16px;
+
+            background: #19110d;
+
+            border: 1px solid #3c2519;
+
+            border-radius: 12px;
+
+            color: #ddd;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .btn-confirmar {
+            width: 100%;
+
+            border: none;
+
+            background: linear-gradient(
+                135deg,
+                #ff6200,
+                #d90000
+            );
+
+            color: white;
+
+            padding: 16px;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            margin-top: 8px;
+        }
+
+
+        /* =====================================================
+           CARRINHO
+        ===================================================== */
+
+        .cart-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, .65);
+
+            display: none;
+
+            z-index: 3000;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        .carrinho {
+            position: fixed;
+
+            top: 0;
+            right: -480px;
+
+            width: min(460px, 100%);
+
+            height: 100vh;
+
+            background: #101010;
+
+            z-index: 3001;
+
+            display: flex;
+
+            flex-direction: column;
+
+            transition: .4s;
+
+            border-left: 1px solid #292929;
+        }
+
+        .carrinho.active {
+            right: 0;
+        }
+
+        .cart-top {
+            padding: 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        .cart-top h2 {
+            font-size: 22px;
+        }
+
+        .close-cart {
+            border: none;
+
+            background: #1b1b1b;
+
+            color: white;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+        }
+
+        .cart-items {
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px;
+        }
+
+        .cart-empty {
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #666;
+
+            text-align: center;
+        }
+
+        .cart-empty span {
+            font-size: 55px;
+
+            margin-bottom: 12px;
+        }
+
+        .cart-item {
+            padding: 15px;
+
+            background: #171717;
+
+            border: 1px solid #242424;
+
+            border-radius: 13px;
+
+            margin-bottom: 12px;
+        }
+
+        .cart-item-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+        .cart-item h4 {
+            font-size: 14px;
+        }
+
+        .cart-item small {
+            display: block;
+
+            color: #777;
+
+            line-height: 1.5;
+
+            margin-top: 5px;
+        }
+
+        .cart-item-price {
+            color: #ff6200;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+        }
+
+        .cart-controls {
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 13px;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+
+            border: none;
+
+            background: #292929;
+
+            color: white;
+
+            border-radius: 7px;
+        }
+
+        .remove-btn {
+            margin-left: auto;
+
+            border: none;
+
+            background: transparent;
+
+            color: #ff4b00;
+
+            font-size: 12px;
+        }
+
+
+        /* CHECKOUT */
+
+        .checkout {
+            padding: 20px;
+
+            border-top: 1px solid #292929;
+
+            max-height: 53vh;
+
+            overflow-y: auto;
+        }
+
+        .checkout h3 {
+            font-size: 14px;
+
+            margin-bottom: 10px;
+        }
+
+        .checkout-group {
+            margin-bottom: 18px;
+        }
+
+        .checkout label {
+            display: block;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            margin-bottom: 7px;
+        }
+
+        .checkout-options {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 8px;
+        }
+
+        .checkout-option {
+            padding: 11px;
+
+            border: 1px solid #292929;
+
+            border-radius: 9px;
+
+            background: #171717;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            cursor: pointer;
+        }
+
+        .checkout-option input {
+            display: none;
+        }
+
+        .checkout-option:has(input:checked) {
+            border-color: #ff4c00;
+
+            background: rgba(255, 70, 0, .09);
+
+            color: #ff7a00;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .total-area {
+            padding-top: 15px;
+
+            margin-top: 15px;
+
+            border-top: 1px solid #292929;
+        }
+
+        .total-line {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 8px;
+
+            color: #999;
+
+            font-size: 13px;
+        }
+
+        .total-line.final {
+            color: white;
+
+            font-size: 20px;
+
+            font-weight: 900;
+        }
+
+        .total-line.final strong {
+            color: #ff6200;
+        }
+
+        .btn-whatsapp {
+            width: 100%;
+
+            border: none;
+
+            background: #19a947;
+
+            color: white;
+
+            padding: 15px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+
+            font-weight: 900;
+
+            margin-top: 12px;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20bd50;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 55px 6% 25px;
+
+            background: #050505;
+
+            border-top: 1px solid #202020;
+
+            text-align: center;
+        }
+
+        footer .footer-logo {
+            font-size: 30px;
+
+            font-weight: 900;
+
+            background: linear-gradient(
+                90deg,
+                #ffe000,
+                #ff3900
+            );
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        .endereco {
+            margin-top: 18px;
+
+            color: #aaa !important;
+        }
+
+        .telefone {
+            margin-top: 8px;
+
+            color: #ff5a00 !important;
+
+            font-weight: bold;
+        }
+
+        .copyright {
+            margin-top: 35px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #181818;
+
+            color: #555 !important;
+        }
+
+
+        /* =====================================================
+           RESPONSIVO
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero-content {
+                width: 60%;
+            }
+
+            .hero-pizza {
+                right: -30px;
+            }
+
+            .produtos {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .promo-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 750px) {
+
+            header {
+                height: 72px;
+
+                padding: 0 16px;
+            }
+
+            .logo {
+                min-width: auto;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+
+                font-size: 20px;
+            }
+
+            .logo-text strong {
+                font-size: 20px;
+            }
+
+            .logo-text span {
+                font-size: 7px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding:
+                    130px
+                    22px
+                    80px;
+
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-pizza {
+                position: relative;
+
+                right: auto;
+                top: auto;
+
+                transform: none;
+
+                width: 100%;
+                height: 250px;
+
+                font-size: 170px;
+
+                margin-top: 20px;
+
+                animation: none;
+            }
+
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .produtos {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 12px;
+            }
+
+            .produto-img {
+                height: 125px;
+
+                font-size: 60px;
+            }
+
+            .produto-info {
+                padding: 13px;
+            }
+
+            .produto-info h3 {
+                font-size: 14px;
+            }
+
+            .produto-info p {
+                font-size: 11px;
+            }
+
+            .preco {
+                font-size: 16px;
+            }
+
+            .btn-add {
+                width: 35px;
+                height: 35px;
+            }
+
+            .categoria-header {
+                display: block;
+            }
+
+            .categoria-header p {
+                margin-top: 5px;
+            }
+
+            .checkout-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 430px) {
+
+            .produtos {
+                grid-template-columns: 1fr;
+            }
+
+            .produto {
+                display: grid;
+
+                grid-template-columns: 105px 1fr;
+            }
+
+            .produto-img {
+                height: 100%;
+
+                min-height: 130px;
+            }
+
+            .sabores-grande {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 20px;
+
+                border-radius: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <a href="#inicio" class="logo">
+
+        <div class="logo-icon">
+            🍕
+        </div>
+
+        <div class="logo-text">
+            <strong>HOT PIZZA</strong>
+            <span>DELIVERY</span>
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="#inicio">Início</a>
+
+        <a href="#salgadas">
+            🍕 Salgadas
+        </a>
+
+        <a href="#doces">
+            🍫 Doces
+        </a>
+
+        <a href="#bebidas">
+            🥤 Bebidas
+        </a>
+
+        <a href="#promocoes">
+            🔥 Promoções
+        </a>
+
+    </nav>
+
+
+    <button
+        class="cart-header"
+        onclick="abrirCarrinho()"
+    >
+
+        🛒
+
+        <span
+            class="cart-count"
+            id="cartCount"
+        >
+            0
+        </span>
+
+    </button>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🔥 PEDIDOS ONLINE
+        </div>
+
+        <h1>
+            O sabor que
+            <span>esquenta</span>
+            sua noite.
+        </h1>
+
+        <p>
+            Pizzas preparadas com muito sabor,
+            ingredientes selecionados e aquele
+            toque especial da Hot Pizza.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn-primary"
+                onclick="document.getElementById('salgadas').scrollIntoView()"
+            >
+                🍕 PEDIR AGORA
+            </button>
+
+            <button
+                class="btn-secondary"
+                onclick="document.getElementById('promocoes').scrollIntoView()"
+            >
+                🔥 Ver promoções
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-pizza">
+        🍕
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROMOÇÕES
+========================================================= -->
+
+<section
+    class="promocoes"
+    id="promocoes"
+>
+
+    <div class="section-title">
+
+        <span>🔥 OFERTAS ESPECIAIS</span>
+
+        <h2>
+            Promoções da
+            <span>Hot Pizza</span>
+        </h2>
+
+    </div>
+
+
+    <div class="promo-grid">
+
+        <div class="promo-card">
+
+            <div class="promo-label">
+                🔥 PROMOÇÃO
+            </div>
+
+            <h3>
+                Combo Hot
+            </h3>
+
+            <p>
+                Pizza + bebida para deixar
+                sua noite ainda mais gostosa.
+            </p>
+
+            <div class="promo-price">
+                Confira no pedido
+            </div>
+
+        </div>
+
+
+        <div class="promo-card">
+
+            <div class="promo-label">
+                ⭐ MAIS PEDIDA
+            </div>
+
+            <h3>
+                Pizza da Casa
+            </h3>
+
+            <p>
+                Uma combinação especial
+                preparada pela Hot Pizza.
+            </p>
+
+            <div class="promo-price">
+                Consulte
+            </div>
+
+        </div>
+
+
+        <div class="promo-card">
+
+            <div class="promo-label">
+                🍫 PARA FINALIZAR
+            </div>
+
+            <h3>
+                Pizzas Doces
+            </h3>
+
+            <p>
+                Chocolate, banana, Romeu e
+                Julieta e muito mais.
+            </p>
+
+            <div class="promo-price">
+                A partir de R$ 50,00
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CARDÁPIO
+========================================================= -->
+
+<section
+    class="cardapio"
+    id="cardapio"
+>
+
+
+    <!-- =====================================================
+         SALGADAS
+    ====================================================== -->
+
+    <div
+        class="categoria"
+        id="salgadas"
+    >
+
+        <div class="categoria-header">
+
+            <div>
+
+                <h2>
+                    🍕 Pizzas Salgadas
+                </h2>
+
+                <p>
+                    Escolha sua pizza favorita
+                    e personalize do seu jeito.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="produtos"
+            id="listaSalgadas"
+        >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         DOCES
+    ====================================================== -->
+
+    <div
+        class="categoria"
+        id="doces"
+    >
+
+        <div class="categoria-header">
+
+            <div>
+
+                <h2>
+                    🍫 Pizzas Doces
+                </h2>
+
+                <p>
+                    Para fechar o pedido com muito sabor.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="produtos"
+            id="listaDoces"
+        >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BEBIDAS
+    ====================================================== -->
+
+    <div
+        class="categoria"
+        id="bebidas"
+    >
+
+        <div class="categoria-header">
+
+            <div>
+
+                <h2>
+                    🥤 Bebidas
+                </h2>
+
+                <p>
+                    Escolha sua bebida para acompanhar.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="produtos"
+            id="listaBebidas"
+        >
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     MODAL PERSONALIZAÇÃO
+========================================================= -->
+
+<div
+    class="modal-bg"
+    id="modalBg"
+>
+
+    <div class="modal">
+
+        <button
+            class="close-modal"
+            onclick="fecharModal()"
+        >
+            ✕
+        </button>
+
+
+        <h2>
+            🍕 Personalize sua pizza
+        </h2>
+
+        <p
+            class="modal-subtitle"
+            id="modalProduto"
+        >
+            Escolha como deseja sua pizza.
+        </p>
+
+
+        <!-- TAMANHO -->
+
+        <div class="grupo">
+
+            <h3>
+                📏 Escolha o tamanho
+            </h3>
+
+            <div class="opcoes">
+
+                <label class="opcao">
+
+                    <input
+                        type="radio"
+                        name="tamanho"
+                        value="pequena"
+                        checked
+                        onchange="alterarTamanho()"
+                    >
+
+                    🍕 Pequena — 1 sabor
+
+                </label>
+
+
+                <label class="opcao">
+
+                    <input
+                        type="radio"
+                        name="tamanho"
+                        value="grande"
+                        onchange="alterarTamanho()"
+                    >
+
+                    🍕 Grande — 2 sabores
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- SABOR PEQUENA -->
+
+        <div
+            class="grupo"
+            id="grupoSaborPequena"
+        >
+
+            <h3>
+                🍕 Escolha o sabor
+            </h3>
+
+            <select
+                class="campo"
+                id="saborPequena"
+            >
+
+            </select>
+
+        </div>
+
+
+        <!-- SABORES GRANDE -->
+
+        <div
+            class="grupo sabores-grande"
+            id="saboresGrande"
+        >
+
+            <div>
+
+                <h3>
+                    🍕 1º sabor
+                </h3>
+
+                <select
+                    class="campo"
+                    id="saborGrande1"
+                >
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    🍕 2º sabor
+                </h3>
+
+                <select
+                    class="campo"
+                    id="saborGrande2"
+                >
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- BORDA -->
+
+        <div class="grupo">
+
+            <h3>
+                🧀 Escolha sua borda
+            </h3>
+
+            <div class="opcoes">
+
+                <label class="opcao">
+
+                    <input
+                        type="radio"
+                        name="borda"
+                        value="Sem borda"
+                        data-preco="0"
+                        checked
+                        onchange="atualizarResumo()"
+                    >
+
+                    Sem borda
+
+                </label>
+
+
+                <label class="opcao">
+
+                    <input
+                        type="radio"
+                        name="borda"
+                        value="Catupiry"
+                        data-preco="10"
+                        onchange="atualizarResumo()"
+                    >
+
+                    Catupiry — R$ 10,00
+
+                </label>
+
+
+                <label class="opcao">
+
+                    <input
+                        type="radio"
+                        name="borda"
+                        value="Cheddar"
+                        data-preco="10"
+                        onchange="atualizarResumo()"
+                    >
+
+                    Cheddar — R$ 10,00
+
+                </label>
+
+
+                <label class="opcao">
+
+                    <input
+                        type="radio"
+                        name="borda"
+                        value="Catupiry + Cheddar (meio a meio)"
+                        data-preco="10"
+                        onchange="atualizarResumo()"
+                    >
+
+                    Catupiry + Cheddar
+                    (meio a meio) — R$ 10,00
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- OBSERVAÇÃO -->
+
+        <div class="grupo">
+
+            <h3>
+                📝 Observação
+            </h3>
+
+            <textarea
+                class="campo"
+                id="observacaoPizza"
+                rows="3"
+                placeholder="Ex: sem cebola, pouco queijo..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- RESUMO -->
+
+        <div
+            class="resumo-personalizacao"
+            id="resumoPersonalizacao"
+        >
+
+            Escolha os itens acima.
+
+        </div>
+
+
+        <button
+            class="btn-confirmar"
+            onclick="confirmarPizza()"
+        >
+
+            🍕 ADICIONAR AO CARRINHO
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CARRINHO
+========================================================= -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="fecharCarrinho()"
+>
+</div>
+
+
+<aside
+    class="carrinho"
+    id="carrinho"
+>
+
+    <div class="cart-top">
+
+        <h2>
+            🛒 Seu pedido
+        </h2>
+
+        <button
+            class="close-cart"
+            onclick="fecharCarrinho()"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    >
+
+        <div class="cart-empty">
+
+            <span>🍕</span>
+
+            <p>
+                Seu carrinho está vazio.
+            </p>
+
+            <small>
+                Escolha uma pizza deliciosa!
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT -->
+
+    <div class="checkout">
+
+
+        <!-- NOME -->
+
+        <div class="checkout-group">
+
+            <label>
+                👤 Nome do cliente
+            </label>
+
+            <input
+                type="text"
+                id="nomeCliente"
+                class="campo"
+                placeholder="Digite seu nome"
+            >
+
+        </div>
+
+
+        <!-- ENTREGA -->
+
+        <div class="checkout-group">
+
+            <label>
+                📦 Como deseja receber?
+            </label>
+
+            <div class="checkout-options">
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="tipoPedido"
+                        value="retirada"
+                        checked
+                        onchange="alterarEntrega()"
+                    >
+
+                    🏠 Retirada
+
+                </label>
+
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="tipoPedido"
+                        value="entrega"
+                        onchange="alterarEntrega()"
+                    >
+
+                    🛵 Entrega
+                    <br>
+                    + R$ 5,00
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENDEREÇO -->
+
+        <div
+            class="checkout-group hidden"
+            id="campoEndereco"
+        >
+
+            <label>
+                📍 Endereço de entrega
+            </label>
+
+            <textarea
+                id="endereco"
+                class="campo"
+                rows="3"
+                placeholder="Rua, número, bairro..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- PAGAMENTO -->
+
+        <div class="checkout-group">
+
+            <label>
+                💳 Forma de pagamento
+            </label>
+
+            <div class="checkout-options">
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="Pix"
+                        checked
+                        onchange="alterarPagamento()"
+                    >
+
+                    💚 Pix
+
+                </label>
+
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="Cartão"
+                        onchange="alterarPagamento()"
+                    >
+
+                    💳 Cartão
+
+                </label>
+
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="pagamento"
+                        value="Dinheiro"
+                        onchange="alterarPagamento()"
+                    >
+
+                    💵 Dinheiro
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- TROCO -->
+
+        <div
+            class="checkout-group hidden"
+            id="campoTroco"
+        >
+
+            <label>
+                💵 Precisa de troco?
+            </label>
+
+            <div class="checkout-options">
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="troco"
+                        value="nao"
+                        checked
+                        onchange="alterarTroco()"
+                    >
+
+                    Não
+
+                </label>
+
+
+                <label class="checkout-option">
+
+                    <input
+                        type="radio"
+                        name="troco"
+                        value="sim"
+                        onchange="alterarTroco()"
+                    >
+
+                    Sim
+
+                </label>
+
+            </div>
+
+
+            <input
+                type="number"
+                id="valorTroco"
+                class="campo hidden"
+                placeholder="Troco para quanto?"
+                min="0"
+                step="0.01"
+                style="margin-top:10px;"
+            >
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="total-area">
+
+            <div class="total-line">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="total-line">
+
+                <span>
+                    Entrega
+                </span>
+
+                <strong id="taxaEntrega">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="total-line final">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="total">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <button
+                class="btn-whatsapp"
+                onclick="finalizarPedido()"
+            >
+
+                📱 FINALIZAR PEDIDO PELO WHATSAPP
+
+            </button>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        🍕 HOT PIZZA
+    </div>
+
+    <p>
+        O sabor que esquenta sua noite.
+    </p>
+
+    <p class="endereco">
+        📍 Rua Juvenal Custódio da Silveira Nº 221
+    </p>
+
+    <p class="telefone">
+        📞 (17) 99188-4163
+    </p>
+
+    <p class="copyright">
+        © 2026 Hot Pizza. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+    /* =====================================================
+       PRODUTOS
+    ===================================================== */
+
+    const pizzasSalgadas = [
+
+        {
+            nome: "Atum",
+            preco: 65,
+            descricao: "Molho, mussarela, atum, cebola, orégano e azeitonas"
+        },
+
+        {
+            nome: "Bauru",
+            preco: 60,
+            descricao: "Molho, mussarela, presunto, tomate, orégano e azeitonas"
+        },
+
+        {
+            nome: "Bacon",
+            preco: 60,
+            descricao: "Molho, mussarela, bacon, orégano e azeitonas"
+        },
+
+        {
+            nome: "Brócolis Bacon",
+            preco: 65,
+            descricao: "Molho, mussarela, brócolis, bacon, alho frito, orégano e azeitonas"
+        },
+
+        {
+            nome: "Calabresa",
+            preco: 55,
+            descricao: "Molho, mussarela, calabresa, cebola, orégano e azeitonas"
+        },
+
+        {
+            nome: "Frango com Catupiry",
+            preco: 65,
+            descricao: "Molho, mussarela, frango desfiado, catupiry, orégano e azeitonas"
+        },
+
+        {
+            nome: "Lombinho com Catupiry",
+            preco: 65,
+            descricao: "Molho, mussarela, lombinho, catupiry, orégano e azeitonas"
+        },
+
+        {
+            nome: "LBB",
+            preco: 65,
+            descricao: "Molho, mussarela, lombinho, banana, bacon, orégano e azeitonas"
+        },
+
+        {
+            nome: "Mussarela",
+            preco: 55,
+            descricao: "Molho, mussarela, tomate, orégano e azeitonas"
+        },
+
+        {
+            nome: "Margherita",
+            preco: 60,
+            descricao: "Molho, mussarela, tomate, manjericão, parmesão, orégano e azeitonas"
+        },
+
+        {
+            nome: "Pizza do Chefe",
+            preco: 65,
+            descricao: "Molho, mussarela, lombinho, bacon, cheddar, batata palha e azeitonas"
+        },
+
+        {
+            nome: "Portuguesa",
+            preco: 65,
+            descricao: "Molho, mussarela, presunto, ovo, palmito, ervilhas, cebola, orégano e azeitonas"
+        },
+
+        {
+            nome: "Pepperoni",
+            preco: 70,
+            descricao: "Molho, mussarela, pepperoni e orégano"
+        },
+
+        {
+            nome: "Quatro Queijos",
+            preco: 72,
+            descricao: "Molho, mussarela, provolone, catupiry, parmesão, orégano e azeitonas"
+        },
+
+        {
+            nome: "Quatro Carnes",
+            preco: 70,
+            descricao: "Molho, mussarela, lombinho, presunto, calabresa ralada, bacon, orégano e azeitonas"
+        },
+
+        {
+            nome: "Lombinho da Casa",
+            preco: 65,
+            descricao: "Molho, mussarela, lombinho, bacon, catupiry, orégano e azeitonas"
+        },
+
+        {
+            nome: "Mussarela e Parmesão",
+            preco: 65,
+            descricao: "Molho, mussarela, parmesão, orégano e azeitonas"
+        },
+
+        {
+            nome: "Brócolis Bacon Catupiry",
+            preco: 70,
+            descricao: "Molho, mussarela, brócolis, bacon, catupiry, orégano e azeitonas"
+        },
+
+        {
+            nome: "Cinco Queijos",
+            preco: 75,
+            descricao: "Molho, mussarela, parmesão, gorgonzola, provolone, catupiry, orégano e azeitonas"
+        },
+
+        {
+            nome: "Frango Bacon Catupiry",
+            preco: 70,
+            descricao: "Molho, mussarela, frango, bacon, catupiry, orégano e azeitonas"
+        }
+
+    ];
+
+
+    const pizzasDoces = [
+
+        {
+            nome: "Chocolate com Granulado",
+            preco: 50,
+            descricao: "Chocolate ao leite derretido e granulado"
+        },
+
+        {
+            nome: "Banana Nevada",
+            preco: 50,
+            descricao: "Banana, chocolate branco e açúcar"
+        },
+
+        {
+            nome: "Romeu e Julieta",
+            preco: 50,
+            descricao: "Queijo mussarela e goiabada cremosa"
+        },
+
+        {
+            nome: "Dois Amores",
+            preco: 50,
+            descricao: "Chocolate com avelã e chocolate branco"
+        }
+
+    ];
+
+
+    const bebidas = [
+
+        {
+            nome: "Coca-Cola",
+            preco: 13,
+            descricao: "Refrigerante"
+        },
+
+        {
+            nome: "Coca-Cola Zero",
+            preco: 13,
+            descricao: "Refrigerante zero açúcar"
+        },
+
+        {
+            nome: "Fanta",
+            preco: 12,
+            descricao: "Refrigerante"
+        },
+
+        {
+            nome: "Sprite",
+            preco: 12,
+            descricao: "Refrigerante"
+        },
+
+        {
+            nome: "Guaraná Antarctica",
+            preco: 12,
+            descricao: "Refrigerante"
+        },
+
+        {
+            nome: "Guaraná Poty",
+            preco: 8,
+            descricao: "Refrigerante"
+        }
+
+    ];
+
+
+    /* =====================================================
+       VARIÁVEIS
+    ===================================================== */
+
+    let carrinho = [];
+
+    let produtoSelecionado = null;
+
+
+    /* =====================================================
+       FORMATAÇÃO
+    ===================================================== */
+
+    function dinheiro(valor) {
+
+        return valor.toLocaleString(
+            "pt-BR",
+            {
+                style: "currency",
+                currency: "BRL"
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       RENDERIZAR PRODUTOS
+    ===================================================== */
+
+    function renderProdutos(lista, elemento, tipo) {
+
+        const container =
+            document.getElementById(elemento);
+
+        container.innerHTML = "";
+
+        lista.forEach((produto, index) => {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "produto";
+
+            let botao;
+
+            if (tipo === "pizza") {
+
+                botao = `
+                    <button
+                        class="btn-add"
+                        onclick="abrirPersonalizacao(${index})"
+                    >
+                        +
+                    </button>
+                `;
+
+            } else {
+
+                botao = `
+                    <button
+                        class="btn-add"
+                        onclick="adicionarBebida(${index})"
+                    >
+                        +
+                    </button>
+                `;
+
+            }
+
+
+            card.innerHTML = `
+
+                <div class="produto-img">
+
+                    ${tipo === "pizza" ? "🍕" : "🥤"}
+
+                </div>
+
+
+                <div class="produto-info">
+
+                    <h3>
+                        ${produto.nome}
+                    </h3>
+
+                    <p>
+                        ${produto.descricao}
+                    </p>
+
+
+                    <div class="produto-bottom">
+
+                        <span class="preco">
+                            ${dinheiro(produto.preco)}
+                        </span>
+
+                        ${botao}
+
+                    </div>
+
+                </div>
+
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       CARREGAR PRODUTOS
+    ===================================================== */
+
+    renderProdutos(
+        pizzasSalgadas,
+        "listaSalgadas",
+        "pizza"
+    );
+
+    renderProdutos(
+        pizzasDoces,
+        "listaDoces",
+        "pizza"
+    );
+
+    renderProdutos(
+        bebidas,
+        "listaBebidas",
+        "bebida"
+    );
+
+
+    /* =====================================================
+       MODAL PIZZA
+    ===================================================== */
+
+    function abrirPersonalizacao(index) {
+
+        produtoSelecionado =
+            pizzasSalgadas[index];
+
+        document.getElementById(
+            "modalProduto"
+        ).textContent =
+            produtoSelecionado.nome;
+
+
+        preencherSabores();
+
+
+        document.querySelector(
+            'input[name="tamanho"][value="pequena"]'
+        ).checked = true;
+
+
+        document.querySelector(
+            'input[name="borda"][value="Sem borda"]'
+        ).checked = true;
+
+
+        document.getElementById(
+            "observacaoPizza"
+        ).value = "";
+
+
+        alterarTamanho();
+
+
+        atualizarResumo();
+
+
+        document.getElementById(
+            "modalBg"
+        ).classList.add("active");
+
+    }
+
+
+    function fecharModal() {
+
+        document.getElementById(
+            "modalBg"
+        ).classList.remove("active");
+
+    }
+
+
+    /* =====================================================
+       SABORES
+    ===================================================== */
+
+    function preencherSabores() {
+
+        const selects = [
+
+            document.getElementById("saborPequena"),
+
+            document.getElementById("saborGrande1"),
+
+            document.getElementById("saborGrande2")
+
+        ];
+
+
+        selects.forEach(select => {
+
+            select.innerHTML = "";
+
+            pizzasSalgadas.forEach(pizza => {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = pizza.nome;
+
+                option.textContent =
+                    `${pizza.nome} — ${dinheiro(pizza.preco)}`;
+
+                select.appendChild(option);
+
+            });
+
+        });
+
+
+        document.getElementById(
+            "saborPequena"
+        ).value =
+            produtoSelecionado.nome;
+
+    }
+
+
+    /* =====================================================
+       TAMANHO
+    ===================================================== */
+
+    function alterarTamanho() {
+
+        const tamanho =
+            document.querySelector(
+                'input[name="tamanho"]:checked'
+            ).value;
+
+
+        const pequena =
+            document.getElementById(
+                "grupoSaborPequena"
+            );
+
+        const grande =
+            document.getElementById(
+                "saboresGrande"
+            );
+
+
+        if (tamanho === "pequena") {
+
+            pequena.style.display = "block";
+
+            grande.classList.remove("active");
+
+        } else {
+
+            pequena.style.display = "none";
+
+            grande.classList.add("active");
+
+        }
+
+
+        atualizarResumo();
+
+    }
+
+
+    /* =====================================================
+       RESUMO
+    ===================================================== */
+
+    function atualizarResumo() {
+
+        const tamanho =
+            document.querySelector(
+                'input[name="tamanho"]:checked'
+            )?.value;
+
+
+        if (!tamanho) return;
+
+
+        let texto = "";
+
+
+        if (tamanho === "pequena") {
+
+            const sabor =
+                document.getElementById(
+                    "saborPequena"
+                ).value;
+
+            texto +=
+                `🍕 Pequena — ${sabor}`;
+
+        } else {
+
+            const sabor1 =
+                document.getElementById(
+                    "saborGrande1"
+                ).value;
+
+            const sabor2 =
+                document.getElementById(
+                    "saborGrande2"
+                ).value;
+
+            texto +=
+                `🍕 Grande — ${sabor1} + ${sabor2}`;
+
+        }
+
+
+        const borda =
+            document.querySelector(
+                'input[name="borda"]:checked'
+            );
+
+
+        if (borda) {
+
+            const precoBorda =
+                Number(
+                    borda.dataset.preco
+                );
+
+            texto +=
+                `<br>🧀 Borda: ${borda.value}`;
+
+            if (precoBorda > 0) {
+
+                texto +=
+                    ` (+ ${dinheiro(precoBorda)})`;
+
+            }
+
+        }
+
+
+        document.getElementById(
+            "resumoPersonalizacao"
+        ).innerHTML = texto;
+
+    }
+
+
+    document.getElementById(
+        "saborPequena"
+    ).addEventListener(
+        "change",
+        atualizarResumo
+    );
+
+
+    document.getElementById(
+        "saborGrande1"
+    ).addEventListener(
+        "change",
+        atualizarResumo
+    );
+
+
+    document.getElementById(
+        "saborGrande2"
+    ).addEventListener(
+        "change",
+        atualizarResumo
+    );
+
+
+    /* =====================================================
+       CONFIRMAR PIZZA
+    ===================================================== */
+
+    function confirmarPizza() {
+
+        const tamanho =
+            document.querySelector(
+                'input[name="tamanho"]:checked'
+            ).value;
+
+
+        let sabor1 = "";
+        let sabor2 = "";
+        let precoPizza = 0;
+
+
+        if (tamanho === "pequena") {
+
+            sabor1 =
+                document.getElementById(
+                    "saborPequena"
+                ).value;
+
+
+            const pizza =
+                pizzasSalgadas.find(
+                    p => p.nome === sabor1
+                );
+
+
+            precoPizza =
+                pizza.preco;
+
+        } else {
+
+            sabor1 =
+                document.getElementById(
+                    "saborGrande1"
+                ).value;
+
+            sabor2 =
+                document.getElementById(
+                    "saborGrande2"
+                ).value;
+
+
+            const pizza1 =
+                pizzasSalgadas.find(
+                    p => p.nome === sabor1
+                );
+
+            const pizza2 =
+                pizzasSalgadas.find(
+                    p => p.nome === sabor2
+                );
+
+
+            /*
+                Para pizza grande com dois sabores,
+                usamos o maior preço entre os sabores.
+            */
+
+            precoPizza =
+                Math.max(
+                    pizza1.preco,
+                    pizza2.preco
+                );
+
+        }
+
+
+        const borda =
+            document.querySelector(
+                'input[name="borda"]:checked'
+            );
+
+
+        const precoBorda =
+            Number(
+                borda.dataset.preco
+            );
+
+
+        const observacao =
+            document.getElementById(
+                "observacaoPizza"
+            ).value.trim();
+
+
+        const item = {
+
+            tipo: "pizza",
+
+            nome:
+                tamanho === "pequena"
+                    ? sabor1
+                    : `${sabor1} + ${sabor2}`,
+
+            tamanho,
+
+            sabor1,
+
+            sabor2,
+
+            borda: borda.value,
+
+            observacao,
+
+            preco:
+                precoPizza + precoBorda,
+
+            quantidade: 1
+
+        };
+
+
+        carrinho.push(item);
+
+
+        fecharModal();
+
+        atualizarCarrinho();
+
+        abrirCarrinho();
+
+    }
+
+
+    /* =====================================================
+       BEBIDA
+    ===================================================== */
+
+    function adicionarBebida(index) {
+
+        const bebida =
+            bebidas[index];
+
+
+        carrinho.push({
+
+            tipo: "bebida",
+
+            nome: bebida.nome,
+
+            preco: bebida.preco,
+
+            quantidade: 1
+
+        });
+
+
+        atualizarCarrinho();
+
+        abrirCarrinho();
+
+    }
+
+
+    /* =====================================================
+       CARRINHO
+    ===================================================== */
+
+    function abrirCarrinho() {
+
+        document.getElementById(
+            "carrinho"
+        ).classList.add("active");
+
+
+        document.getElementById(
+            "cartOverlay"
+        ).classList.add("active");
+
+    }
+
+
+    function fecharCarrinho() {
+
+        document.getElementById(
+            "carrinho"
+        ).classList.remove("active");
+
+
+        document.getElementById(
+            "cartOverlay"
+        ).classList.remove("active");
+
+    }
+
+
+    /* =====================================================
+       ATUALIZAR CARRINHO
+    ===================================================== */
+
+    function atualizarCarrinho() {
+
+        const container =
+            document.getElementById(
+                "cartItems"
+            );
+
+
+        const contador =
+            document.getElementById(
+                "cartCount"
+            );
+
+
+        contador.textContent =
+            carrinho.reduce(
+                (total, item) =>
+                    total + item.quantidade,
+                0
+            );
+
+
+        if (carrinho.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="cart-empty">
+
+                    <span>🍕</span>
+
+                    <p>
+                        Seu carrinho está vazio.
+                    </p>
+
+                    <small>
+                        Escolha uma pizza deliciosa!
+                    </small>
+
+                </div>
+
+            `;
+
+        } else {
+
+            container.innerHTML = "";
+
+
+            carrinho.forEach(
+                (item, index) => {
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+                    div.className =
+                        "cart-item";
+
+
+                    let detalhes = "";
+
+
+                    if (item.tipo === "pizza") {
+
+                        detalhes =
+                            `${item.tamanho === "pequena"
+                                ? "Pequena"
+                                : "Grande"}<br>
+                            🍕 ${item.sabor1}`;
+
+                        if (item.sabor2) {
+
+                            detalhes +=
+                                ` + ${item.sabor2}`;
+
+                        }
+
+                        detalhes +=
+                            `<br>🧀 ${item.borda}`;
+
+
+                        if (item.observacao) {
+
+                            detalhes +=
+                                `<br>📝 ${item.observacao}`;
+
+                        }
+
+                    }
+
+
+                    div.innerHTML = `
+
+                        <div class="cart-item-top">
+
+                            <div>
+
+                                <h4>
+                                    ${item.nome}
+                                </h4>
+
+                                <small>
+                                    ${detalhes}
+                                </small>
+
+                            </div>
+
+                            <div class="cart-item-price">
+
+                                ${dinheiro(
+                                    item.preco *
+                                    item.quantidade
+                                )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="cart-controls">
+
+                            <button
+                                class="qty-btn"
+                                onclick="diminuirItem(${index})"
+                            >
+                                −
+                            </button>
+
+                            <strong>
+                                ${item.quantidade}
+                            </strong>
+
+                            <button
+                                class="qty-btn"
+                                onclick="aumentarItem(${index})"
+                            >
+                                +
+                            </button>
+
+
+                            <button
+                                class="remove-btn"
+                                onclick="removerItem(${index})"
+                            >
+                                Remover
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(div);
+
+                }
+            );
+
+        }
+
+
+        atualizarTotais();
+
+    }
+
+
+    /* =====================================================
+       QUANTIDADE
+    ===================================================== */
+
+    function aumentarItem(index) {
+
+        carrinho[index].quantidade++;
+
+        atualizarCarrinho();
+
+    }
+
+
+    function diminuirItem(index) {
+
+        if (
+            carrinho[index].quantidade > 1
+        ) {
+
+            carrinho[index].quantidade--;
+
+        } else {
+
+            carrinho.splice(index, 1);
+
+        }
+
+
+        atualizarCarrinho();
+
+    }
+
+
+    function removerItem(index) {
+
+        carrinho.splice(index, 1);
+
+        atualizarCarrinho();
+
+    }
+
+
+    /* =====================================================
+       TOTAL
+    ===================================================== */
+
+    function calcularSubtotal() {
+
+        return carrinho.reduce(
+            (total, item) =>
+                total +
+                item.preco *
+                item.quantidade,
+            0
+        );
+
+    }
+
+
+    function atualizarTotais() {
+
+        const subtotal =
+            calcularSubtotal();
+
+
+        const tipoPedido =
+            document.querySelector(
+                'input[name="tipoPedido"]:checked'
+            )?.value;
+
+
+        const taxa =
+            tipoPedido === "entrega"
+                ? 5
+                : 0;
+
+
+        const total =
+            subtotal + taxa;
+
+
+        document.getElementById(
+            "subtotal"
+        ).textContent =
+            dinheiro(subtotal);
+
+
+        document.getElementById(
+            "taxaEntrega"
+        ).textContent =
+            dinheiro(taxa);
+
+
+        document.getElementById(
+            "total"
+        ).textContent =
+            dinheiro(total);
+
+    }
+
+
+    /* =====================================================
+       ENTREGA
+    ===================================================== */
+
+    function alterarEntrega() {
+
+        const tipo =
+            document.querySelector(
+                'input[name="tipoPedido"]:checked'
+            ).value;
+
+
+        const endereco =
+            document.getElementById(
+                "campoEndereco"
+            );
+
+
+        if (tipo === "entrega") {
+
+            endereco.classList.remove(
+                "hidden"
+            );
+
+        } else {
+
+            endereco.classList.add(
+                "hidden"
+            );
+
+            document.getElementById(
+                "endereco"
+            ).value = "";
+
+        }
+
+
+        atualizarTotais();
+
+    }
+
+
+    /* =====================================================
+       PAGAMENTO
+    ===================================================== */
+
+    function alterarPagamento() {
+
+        const pagamento =
+            document.querySelector(
+                'input[name="pagamento"]:checked'
+            ).value;
+
+
+        const campoTroco =
+            document.getElementById(
+                "campoTroco"
+            );
+
+
+        if (pagamento === "Dinheiro") {
+
+            campoTroco.classList.remove(
+                "hidden"
+            );
+
+        } else {
+
+            campoTroco.classList.add(
+                "hidden"
+            );
+
+            document.getElementById(
+                "valorTroco"
+            ).value = "";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       TROCO
+    ===================================================== */
+
+    function alterarTroco() {
+
+        const troco =
+            document.querySelector(
+                'input[name="troco"]:checked'
+            ).value;
+
+
+        const campo =
+            document.getElementById(
+                "valorTroco"
+            );
+
+
+        if (troco === "sim") {
+
+            campo.classList.remove(
+                "hidden"
+            );
+
+        } else {
+
+            campo.classList.add(
+                "hidden"
+            );
+
+            campo.value = "";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       FINALIZAR PEDIDO
+    ===================================================== */
+
+    function finalizarPedido() {
+
+        if (carrinho.length === 0) {
+
+            alert(
+                "Seu carrinho está vazio! 🍕"
+            );
+
+            return;
+
+        }
+
+
+        const nome =
+            document.getElementById(
+                "nomeCliente"
+            ).value.trim();
+
+
+        if (!nome) {
+
+            alert(
+                "Digite o nome do cliente."
+            );
+
+            document.getElementById(
+                "nomeCliente"
+            ).focus();
+
+            return;
+
+        }
+
+
+        const tipoPedido =
+            document.querySelector(
+                'input[name="tipoPedido"]:checked'
+            ).value;
+
+
+        let endereco = "";
+
+
+        if (tipoPedido === "entrega") {
+
+            endereco =
+                document.getElementById(
+                    "endereco"
+                ).value.trim();
+
+
+            if (!endereco) {
+
+                alert(
+                    "Digite o endereço de entrega."
+                );
+
+                document.getElementById(
+                    "endereco"
+                ).focus();
+
+                return;
+
+            }
+
+        }
+
+
+        const pagamento =
+            document.querySelector(
+                'input[name="pagamento"]:checked'
+            ).value;
+
+
+        let informacaoTroco = "";
+
+
+        if (pagamento === "Dinheiro") {
+
+            const precisaTroco =
+                document.querySelector(
+                    'input[name="troco"]:checked'
+                ).value;
+
+
+            if (precisaTroco === "sim") {
+
+                const valor =
+                    Number(
+                        document.getElementById(
+                            "valorTroco"
+                        ).value
+                    );
+
+
+                if (!valor) {
+
+                    alert(
+                        "Informe o valor para o troco."
+                    );
+
+                    return;
+
+                }
+
+
+                informacaoTroco =
+                    `Troco para: ${dinheiro(valor)}`;
+
+            } else {
+
+                informacaoTroco =
+                    "Não precisa de troco.";
+
+            }
+
+        }
+
+
+        const subtotal =
+            calcularSubtotal();
+
+
+        const taxa =
+            tipoPedido === "entrega"
+                ? 5
+                : 0;
+
+
+        const total =
+            subtotal + taxa;
+
+
+        let mensagem = "";
+
+
+        mensagem +=
+            `🔥 *HOT PIZZA — NOVO PEDIDO*%0A%0A`;
+
+
+        mensagem +=
+            `👤 *Cliente:* ${nome}%0A`;
+
+
+        mensagem +=
+            `📦 *Tipo:* ${
+                tipoPedido === "entrega"
+                    ? "Entrega"
+                    : "Retirada"
+            }%0A`;
+
+
+        if (tipoPedido === "entrega") {
+
+            mensagem +=
+                `📍 *Endereço:* ${endereco}%0A`;
+
+        }
+
+
+        mensagem +=
+            `%0A🍕 *PEDIDO:*%0A`;
+
+
+        carrinho.forEach(
+            (item, index) => {
+
+                mensagem +=
+                    `%0A${index + 1}. `;
+
+
+                mensagem +=
+                    `*${item.quantidade}x ${item.nome}*`;
+
+
+                if (item.tipo === "pizza") {
+
+                    mensagem +=
+                        `%0A   Tamanho: ${
+                            item.tamanho
+                        }`;
+
+
+                    mensagem +=
+                        `%0A   Borda: ${
+                            item.borda
+                        }`;
+
+
+                    if (
+                        item.observacao
+                    ) {
+
+                        mensagem +=
+                            `%0A   Obs.: ${
+                                item.observacao
+                            }`;
+
+                    }
+
+                }
+
+
+                mensagem +=
+                    `%0A   ${dinheiro(
+                        item.preco *
+                        item.quantidade
+                    )}%0A`;
+
+            }
+        );
+
+
+        mensagem +=
+            `%0A💰 *Subtotal:* ${dinheiro(subtotal)}%0A`;
+
+
+        mensagem +=
+            `🛵 *Taxa de entrega:* ${dinheiro(taxa)}%0A`;
+
+
+        mensagem +=
+            `🔥 *TOTAL: ${dinheiro(total)}*%0A%0A`;
+
+
+        mensagem +=
+            `💳 *Pagamento:* ${pagamento}%0A`;
+
+
+        if (informacaoTroco) {
+
+            mensagem +=
+                `💵 *${informacaoTroco}*%0A`;
+
+        }
+
+
+        /*
+            ATENÇÃO:
+            Troque o número abaixo pelo WhatsApp
+            que receberá os pedidos.
+        */
+
+        const telefone =
+            "5517991884163";
+
+
+        const url =
+            `https://wa.me/${telefone}?text=${mensagem}`;
+
+
+        window.open(
+            url,
+            "_blank"
+        );
+
+    }
+
+
+    /* =====================================================
+       FECHAR MODAL CLICANDO FORA
+    ===================================================== */
+
+    document.getElementById(
+        "modalBg"
+    ).addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                fecharModal();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       ESC
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Escape") {
+
+                fecharModal();
+
+                fecharCarrinho();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
