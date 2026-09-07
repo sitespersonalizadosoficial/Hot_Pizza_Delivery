@@ -911,6 +911,20 @@
         .sabores-grande.active {
             display: grid;
         }
+        /* SEGUNDO SABOR MAIS FÁCIL DE ENCONTRAR */
+        #saboresGrande > div:last-child {
+            padding: 14px;
+            border: 1px solid rgba(255, 104, 0, .35);
+            border-radius: 14px;
+            background: rgba(255, 68, 0, .06);
+        }
+
+        #saboresGrande > div:last-child .campo {
+            border-color: #ff6800;
+            min-height: 50px;
+            font-size: 15px;
+        }
+
 
         .resumo-personalizacao {
             padding: 16px;
@@ -1332,9 +1346,10 @@
 
 
         /* =====================================================
-           RESPONSIVO
+           RESPONSIVO — CELULAR
         ===================================================== */
 
+        /* Tablets / telas médias */
         @media (max-width: 1000px) {
 
             nav {
@@ -1354,56 +1369,72 @@
             }
 
             .produtos {
-                grid-template-columns:
-                    repeat(3, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .promo-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
 
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
         @media (max-width: 750px) {
 
-            header {
-                height: 72px;
+            body {
+                overflow-x: hidden;
+            }
 
-                padding: 0 16px;
+            header {
+                height: 68px;
+                padding: 0 14px;
             }
 
             .logo {
                 min-width: auto;
+                gap: 8px;
             }
 
             .logo-icon {
-                width: 40px;
-                height: 40px;
-
-                font-size: 20px;
+                width: 38px;
+                height: 38px;
+                font-size: 19px;
             }
 
             .logo-text strong {
-                font-size: 20px;
+                font-size: 19px;
             }
 
             .logo-text span {
                 font-size: 7px;
+                letter-spacing: 3px;
             }
 
             nav {
                 display: none;
             }
 
+            .cart-header {
+                width: 44px;
+                height: 44px;
+                font-size: 19px;
+            }
+
+            .cart-count {
+                min-width: 20px;
+                height: 20px;
+                font-size: 10px;
+            }
+
+
+            /* HERO */
+
             .hero {
                 min-height: auto;
-
-                padding:
-                    130px
-                    22px
-                    80px;
-
+                padding: 110px 18px 55px;
                 text-align: center;
             }
 
@@ -1411,114 +1442,369 @@
                 width: 100%;
             }
 
+            .hero-badge {
+                padding: 8px 14px;
+                font-size: 11px;
+                margin-bottom: 18px;
+            }
+
             .hero h1 {
+                font-size: clamp(42px, 13vw, 62px);
+                line-height: .94;
                 letter-spacing: -3px;
+                margin-bottom: 20px;
             }
 
             .hero p {
-                font-size: 15px;
+                font-size: 14px;
+                line-height: 1.55;
+                margin: 0 auto 25px;
+                max-width: 340px;
             }
 
             .hero-buttons {
-                justify-content: center;
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                padding: 14px 20px;
+                font-size: 14px;
             }
 
             .hero-pizza {
                 position: relative;
-
                 right: auto;
                 top: auto;
-
                 transform: none;
-
                 width: 100%;
-                height: 250px;
-
-                font-size: 170px;
-
-                margin-top: 20px;
-
+                height: 190px;
+                font-size: 135px;
+                margin-top: 12px;
                 animation: none;
             }
 
+
+            /* SEÇÕES */
+
+            .promocoes,
+            .cardapio {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                padding: 0 18px;
+                margin-bottom: 28px;
+            }
+
+            .section-title span {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+
+            /* PROMOÇÕES — DESLIZA PARA O LADO */
+
             .promo-grid {
-                grid-template-columns: 1fr;
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 14px;
+                padding: 4px 18px 12px;
+                max-width: none;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
             }
 
-            .produtos {
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap: 12px;
+            .promo-grid::-webkit-scrollbar {
+                display: none;
             }
 
-            .produto-img {
-                height: 125px;
-
-                font-size: 60px;
+            .promo-card {
+                flex: 0 0 82%;
+                min-height: 205px;
+                padding: 22px;
+                border-radius: 18px;
+                scroll-snap-align: start;
             }
 
-            .produto-info {
-                padding: 13px;
+            .promo-card h3 {
+                font-size: 22px;
             }
 
-            .produto-info h3 {
-                font-size: 14px;
+            .promo-card p {
+                font-size: 13px;
             }
 
-            .produto-info p {
-                font-size: 11px;
+            .promo-price {
+                font-size: 21px;
+                margin-top: 16px;
             }
 
-            .preco {
-                font-size: 16px;
+
+            /* CARDÁPIO */
+
+            .categoria {
+                width: 100%;
+                margin: 0 0 55px;
             }
 
-            .btn-add {
-                width: 35px;
-                height: 35px;
+            .categoria:last-child {
+                margin-bottom: 0;
             }
 
             .categoria-header {
                 display: block;
+                padding: 0 18px 14px;
+                margin-bottom: 18px;
+                border-bottom: 1px solid #242424;
+            }
+
+            .categoria-header h2 {
+                font-size: 25px;
             }
 
             .categoria-header p {
-                margin-top: 5px;
+                margin-top: 6px;
+                font-size: 12px;
+                line-height: 1.4;
             }
 
-            .checkout-options {
-                grid-template-columns: 1fr;
-            }
-        }
 
-
-        @media (max-width: 430px) {
+            /* PRODUTOS — CARDS HORIZONTAIS */
 
             .produtos {
-                grid-template-columns: 1fr;
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 13px;
+                padding: 3px 18px 12px;
+                grid-template-columns: none;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .produtos::-webkit-scrollbar {
+                display: none;
             }
 
             .produto {
-                display: grid;
-
-                grid-template-columns: 105px 1fr;
+                flex: 0 0 72%;
+                min-width: 72%;
+                display: flex;
+                flex-direction: column;
+                border-radius: 17px;
+                scroll-snap-align: start;
             }
 
             .produto-img {
-                height: 100%;
+                height: 145px;
+                min-height: 145px;
+                flex-shrink: 0;
+                font-size: 65px;
+            }
 
-                min-height: 130px;
+            .produto-info {
+                padding: 14px;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .produto-info h3 {
+                font-size: 15px;
+                line-height: 1.25;
+                margin-bottom: 6px;
+            }
+
+            .produto-info p {
+                min-height: 48px;
+                font-size: 11px;
+                line-height: 1.4;
+            }
+
+            .produto-bottom {
+                margin-top: auto;
+                padding-top: 14px;
+            }
+
+            .preco {
+                font-size: 17px;
+            }
+
+            .btn-add {
+                width: 38px;
+                height: 38px;
+                flex-shrink: 0;
+            }
+
+
+            /* MODAL */
+
+            .modal-bg {
+                padding: 12px;
+                align-items: center;
+            }
+
+            .modal {
+                width: 100%;
+                max-width: 500px;
+                max-height: 92vh;
+                padding: 22px 18px;
+                border-radius: 20px;
+            }
+
+            .modal h2 {
+                font-size: 23px;
+                padding-right: 35px;
+            }
+
+            .grupo {
+                margin-bottom: 20px;
+            }
+
+            .opcao {
+                min-height: 46px;
+                padding: 11px;
+                font-size: 13px;
             }
 
             .sabores-grande {
                 grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+
+            /* CARRINHO */
+
+            .carrinho {
+                width: min(430px, 100%);
+            }
+
+            .cart-top {
+                padding: 16px;
+            }
+
+            .cart-items {
+                padding: 14px;
+            }
+
+            .checkout {
+                padding: 15px;
+                max-height: 55vh;
+            }
+
+            .checkout-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .checkout-option {
+                padding: 11px 7px;
+                font-size: 11px;
+            }
+
+            .campo {
+                font-size: 14px;
+            }
+
+            .btn-whatsapp {
+                padding: 14px 10px;
+                font-size: 13px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 45px 18px 22px;
+            }
+
+            footer .footer-logo {
+                font-size: 27px;
+            }
+        }
+
+
+        /* CELULARES PEQUENOS */
+
+        @media (max-width: 430px) {
+
+            .hero {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-pizza {
+                height: 165px;
+                font-size: 120px;
+            }
+
+            .promo-card {
+                flex-basis: 86%;
+            }
+
+            .produto {
+                flex-basis: 82%;
+                min-width: 82%;
+            }
+
+            .produto-img {
+                height: 135px;
+                min-height: 135px;
+            }
+
+            .categoria-header h2 {
+                font-size: 23px;
+            }
+
+            .checkout-options {
+                grid-template-columns: 1fr 1fr;
             }
 
             .modal {
-                padding: 20px;
-
+                padding: 20px 15px;
                 border-radius: 18px;
+            }
+        }
+
+
+        /* CELULARES MUITO PEQUENOS */
+
+        @media (max-width: 360px) {
+
+            .logo-text strong {
+                font-size: 17px;
+            }
+
+            .logo-text span {
+                font-size: 6px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .produto {
+                flex-basis: 88%;
+                min-width: 88%;
+            }
+
+            .promo-card {
+                flex-basis: 90%;
             }
         }
 
@@ -1890,7 +2176,7 @@
             class="modal-subtitle"
             id="modalProduto"
         >
-            Escolha como deseja sua pizza.
+            Escolha o tamanho e os sabores da sua pizza.
         </p>
 
 
@@ -1969,6 +2255,7 @@
 
                 <h3>
                     🍕 1º sabor
+                    <small style="color:#777;font-weight:normal;">(já selecionado)</small>
                 </h3>
 
                 <select
@@ -1984,7 +2271,7 @@
             <div>
 
                 <h3>
-                    🍕 2º sabor
+                    🍕 2º sabor <span style="color:#ff6800;">• escolha aqui</span>
                 </h3>
 
                 <select
@@ -2474,7 +2761,42 @@
        PRODUTOS
     ===================================================== */
 
-    const pizzasSalgadas = [
+    // =====================================================
+    // PREÇOS DAS PIZZAS — ALTERE SOMENTE AQUI
+    // =====================================================
+    // Esses valores serão usados para qualquer sabor.
+    const PRECO_PEQUENA = 0.00; // 🍕 Pizza pequena
+    const PRECO_GRANDE = 0.00;  // 🍕 Pizza grande
+
+    // =====================================================
+// PREÇOS DAS PIZZAS — ALTERE SOMENTE AQUI
+// Pequena e grande têm preços próprios por sabor.
+// Na grande com 2 sabores, o sistema cobra o sabor MAIS CARO.
+// =====================================================
+const PRECOS_PIZZAS = {
+    "Atum": { pequena: 60.00, grande: 65.00 },
+    "Bauru": { pequena: 55.00, grande: 60.00 },
+    "Bacon": { pequena: 55.00, grande: 60.00 },
+    "Brócolis Bacon": { pequena: 60.00, grande: 65.00 },
+    "Calabresa": { pequena: 50.00, grande: 55.00 },
+    "Frango com Catupiry": { pequena: 60.00, grande: 65.00 },
+    "Lombinho com Catupiry": { pequena: 60.00, grande: 65.00 },
+    "LBB": { pequena: 60.00, grande: 65.00 },
+    "Mussarela": { pequena: 50.00, grande: 55.00 },
+    "Margherita": { pequena: 55.00, grande: 60.00 },
+    "Pizza do Chefe": { pequena: 60.00, grande: 65.00 },
+    "Portuguesa": { pequena: 60.00, grande: 65.00 },
+    "Pepperoni": { pequena: 65.00, grande: 70.00 },
+    "Quatro Queijos": { pequena: 67.00, grande: 72.00 },
+    "Quatro Carnes": { pequena: 65.00, grande: 70.00 },
+    "Lombinho da Casa": { pequena: 60.00, grande: 65.00 },
+    "Mussarela e Parmesão": { pequena: 60.00, grande: 65.00 },
+    "Brócolis Bacon Catupiry": { pequena: 65.00, grande: 70.00 },
+    "Cinco Queijos": { pequena: 70.00, grande: 75.00 },
+    "Frango Bacon Catupiry": { pequena: 65.00, grande: 70.00 },
+};
+
+const pizzasSalgadas = [
 
         {
             nome: "Atum",
@@ -2902,6 +3224,21 @@
         ).value =
             produtoSelecionado.nome;
 
+        // Na pizza grande, o sabor escolhido no card já entra como 1º sabor.
+        document.getElementById(
+            "saborGrande1"
+        ).value =
+            produtoSelecionado.nome;
+
+        // Deixa o 2º sabor sem escolha para facilitar a seleção do cliente.
+        const segundo = document.getElementById("saborGrande2");
+        const placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "👉 Escolha o segundo sabor";
+        placeholder.disabled = true;
+        placeholder.selected = true;
+        segundo.insertBefore(placeholder, segundo.firstChild);
+
     }
 
 
@@ -3067,7 +3404,6 @@
         let sabor2 = "";
         let precoPizza = 0;
 
-
         if (tamanho === "pequena") {
 
             sabor1 =
@@ -3075,15 +3411,8 @@
                     "saborPequena"
                 ).value;
 
-
-            const pizza =
-                pizzasSalgadas.find(
-                    p => p.nome === sabor1
-                );
-
-
             precoPizza =
-                pizza.preco;
+                PRECOS_PIZZAS[sabor1]?.pequena ?? 0;
 
         } else {
 
@@ -3097,29 +3426,15 @@
                     "saborGrande2"
                 ).value;
 
+            // Grande com 2 sabores: sempre cobra o sabor mais caro.
+            const preco1 =
+                PRECOS_PIZZAS[sabor1]?.grande ?? 0;
 
-            const pizza1 =
-                pizzasSalgadas.find(
-                    p => p.nome === sabor1
-                );
-
-            const pizza2 =
-                pizzasSalgadas.find(
-                    p => p.nome === sabor2
-                );
-
-
-            /*
-                Para pizza grande com dois sabores,
-                usamos o maior preço entre os sabores.
-            */
+            const preco2 =
+                PRECOS_PIZZAS[sabor2]?.grande ?? 0;
 
             precoPizza =
-                Math.max(
-                    pizza1.preco,
-                    pizza2.preco
-                );
-
+                Math.max(preco1, preco2);
         }
 
 
