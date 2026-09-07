@@ -1280,6 +1280,17 @@
         }
 
 
+
+        /* Espaço para o menu fixo do celular ao navegar pelas seções */
+        @media (max-width: 750px) {
+            #promocoes,
+            #salgadas,
+            #doces,
+            #bebidas {
+                scroll-margin-top: 125px;
+            }
+        }
+
         /* =====================================================
            FOOTER
         ===================================================== */
@@ -1414,7 +1425,60 @@
             }
 
             nav {
+                position: fixed;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                height: 46px;
+
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                padding: 0 12px;
+
+                background: rgba(8, 8, 8, 0.98);
+                border-bottom: 1px solid rgba(255, 60, 0, 0.25);
+
+                overflow-x: auto;
+                overflow-y: hidden;
+                white-space: nowrap;
+
+                z-index: 999;
+
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            nav::-webkit-scrollbar {
                 display: none;
+            }
+
+            nav a {
+                flex: 0 0 auto;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                min-height: 34px;
+                padding: 7px 12px;
+
+                border-radius: 20px;
+                background: #151515;
+                border: 1px solid #292929;
+
+                font-size: 12px;
+                font-weight: 800;
+
+                white-space: nowrap;
+            }
+
+            nav a:active,
+            nav a:hover {
+                background: #ff3c00;
+                border-color: #ff3c00;
+                color: #fff;
             }
 
             .cart-header {
@@ -1434,7 +1498,7 @@
 
             .hero {
                 min-height: auto;
-                padding: 110px 18px 55px;
+                padding: 135px 18px 55px;
                 text-align: center;
             }
 
@@ -1835,8 +1899,6 @@
 
 
     <nav>
-
-        <a href="#inicio">Início</a>
 
         <a href="#salgadas">
             🍕 Salgadas
@@ -2762,16 +2824,10 @@
     ===================================================== */
 
     // =====================================================
-    // PREÇOS DAS PIZZAS — ALTERE SOMENTE AQUI
-    // =====================================================
-    // Esses valores serão usados para qualquer sabor.
-    const PRECO_PEQUENA = 0.00; // 🍕 Pizza pequena
-    const PRECO_GRANDE = 0.00;  // 🍕 Pizza grande
-
-    // =====================================================
-// PREÇOS DAS PIZZAS — ALTERE SOMENTE AQUI
-// Pequena e grande têm preços próprios por sabor.
-// Na grande com 2 sabores, o sistema cobra o sabor MAIS CARO.
+// 🍕 PREÇOS DAS PIZZAS — ALTERE AQUI
+// Formato: sabor: { pequena: VALOR, grande: VALOR }
+// Na GRANDE com 2 sabores, será usado automaticamente
+// o valor do sabor MAIS CARO.
 // =====================================================
 const PRECOS_PIZZAS = {
     "Atum": { pequena: 60.00, grande: 65.00 },
@@ -3405,38 +3461,14 @@ const pizzasSalgadas = [
         let precoPizza = 0;
 
         if (tamanho === "pequena") {
-
-            sabor1 =
-                document.getElementById(
-                    "saborPequena"
-                ).value;
-
-            precoPizza =
-                PRECOS_PIZZAS[sabor1]?.pequena ?? 0;
-
+            // Pequena: usa o preço da pequena do sabor escolhido.
+            precoPizza = PRECOS_PIZZAS[sabor1]?.pequena ?? 0;
         } else {
-
-            sabor1 =
-                document.getElementById(
-                    "saborGrande1"
-                ).value;
-
-            sabor2 =
-                document.getElementById(
-                    "saborGrande2"
-                ).value;
-
             // Grande com 2 sabores: sempre cobra o sabor mais caro.
-            const preco1 =
-                PRECOS_PIZZAS[sabor1]?.grande ?? 0;
-
-            const preco2 =
-                PRECOS_PIZZAS[sabor2]?.grande ?? 0;
-
-            precoPizza =
-                Math.max(preco1, preco2);
+            const preco1 = PRECOS_PIZZAS[sabor1]?.grande ?? 0;
+            const preco2 = PRECOS_PIZZAS[sabor2]?.grande ?? 0;
+            precoPizza = Math.max(preco1, preco2);
         }
-
 
         const borda =
             document.querySelector(
