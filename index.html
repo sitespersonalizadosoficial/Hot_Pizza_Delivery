@@ -9,64 +9,7 @@
     <meta name="description" content="Hot Pizza - Pizzas, bebidas e muito sabor. Faça seu pedido online.">
 
     <style>
-        /* FOOTER STYLES */
-        footer {
-            background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
-            border-top: 1px solid rgba(255, 60, 0, 0.25);
-            padding: 45px 20px 25px;
-            text-align: center;
-            color: #bcbcbc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-logo {
-            font-size: 26px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            background: linear-gradient(90deg, #ffd000, #ff3b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
-        }
-
-        footer p {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #aaa;
-            margin: 0;
-        }
-
-        footer .endereco,
-        footer .telefone {
-            color: #e0e0e0;
-            font-weight: 500;
-        }
-
-        footer .telefone {
-            margin-bottom: 12px;
-        }
-
-        footer .copyright {
-            width: 100%;
-            max-width: 500px;
-            font-size: 12px;
-            color: #666;
-            margin-top: 12px;
-            padding-top: 18px;
-            border-top: 1px solid #1a1a1a;
-        }
-
-        .logo-icon img {
-            width: 40px;
-            height: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* RESET */
+        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
@@ -129,6 +72,14 @@
             justify-content: center;
             font-size: 24px;
             box-shadow: 0 0 18px rgba(255, 70, 0, .45);
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .logo-text strong {
@@ -193,6 +144,9 @@
             color: white;
             font-size: 22px;
             transition: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .cart-header:hover {
@@ -263,7 +217,7 @@
             line-height: .9;
             text-transform: uppercase;
             font-weight: 1000;
-            letter-spacing: -5px;
+            letter-spacing: -3px;
             margin-bottom: 25px;
         }
 
@@ -311,6 +265,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 50px;
+            padding: 0 10px;
         }
 
         .section-title span {
@@ -350,6 +305,9 @@
             background: linear-gradient(145deg, #1e1714, #100e0d);
             border: 1px solid rgba(255, 85, 0, .2);
             transition: .35s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .promo-card:hover {
@@ -371,9 +329,9 @@
         }
 
         .promo-card p {
-            color: #aaa;
+            color: #ccc;
             line-height: 1.5;
-            font-size: 14px;
+            font-size: 14.5px;
         }
 
         .promo-price {
@@ -422,21 +380,31 @@
             margin-bottom: 28px;
             border-bottom: 1px solid #242424;
             padding-bottom: 18px;
+            padding-left: 4px;
+            padding-right: 4px;
         }
 
         .categoria-header h2 {
-            font-size: 30px;
+            font-size: 32px;
+            font-weight: 900;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .categoria-header p {
-            color: #777;
-            font-size: 13px;
+            color: #e0e0e0;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 6px;
+            line-height: 1.4;
         }
 
         .produtos {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
+            gap: 20px;
         }
 
         .produto {
@@ -446,6 +414,8 @@
             overflow: hidden;
             transition: .3s;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .produto:hover {
@@ -455,92 +425,117 @@
         }
 
         .produto-img {
-            height: 160px;
-            background: radial-gradient(circle at 50% 55%, rgba(255, 150, 0, .25), transparent 45%), linear-gradient(145deg, #251510, #121212);
+            height: 180px;
+            width: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 100, 0, .15), transparent 70%), linear-gradient(145deg, #1c1410, #121212);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
         }
 
         .produto-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+        }
+
+        .produto:hover .produto-img img {
+            transform: scale(1.05);
         }
 
         .produto-info {
             padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
         }
 
         .produto-info h3 {
-            font-size: 17px;
-            margin-bottom: 7px;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #ffffff;
         }
 
         .produto-info p {
-            min-height: 42px;
-            color: #8e8e8e;
-            font-size: 12px;
-            line-height: 1.4;
+            min-height: 40px;
+            color: #b0b0b0;
+            font-size: 13px;
+            line-height: 1.45;
+            margin-bottom: 12px;
         }
 
         .produto-bottom {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
             gap: 10px;
-            margin-top: 18px;
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         /* DUAL PRICE CONTAINER */
         .precos-container {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 4px;
         }
 
         .preco-item {
             font-size: 13px;
             font-weight: 800;
-            color: #ff6800;
+            color: #ff7700;
         }
 
         .preco-item span {
-            color: #888;
+            color: #aaa;
             font-weight: normal;
-            font-size: 11px;
+            font-size: 12px;
             margin-right: 4px;
         }
 
         .preco {
             color: #ff6800;
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 900;
         }
 
         .btn-add {
             border: none;
-            background: #ff4300;
+            background: linear-gradient(135deg, #ff5500, #d93800);
             color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 11px;
-            font-size: 22px;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: bold;
             transition: .3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(255, 60, 0, 0.25);
+            flex-shrink: 0;
         }
 
         .btn-add:hover {
-            background: #ff6700;
+            background: linear-gradient(135deg, #ff7700, #ff4400);
             transform: scale(1.08);
+            box-shadow: 0 6px 14px rgba(255, 60, 0, 0.4);
         }
 
         /* MODAL PERSONALIZAÇÃO */
         .modal-bg {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, .78);
+            background: rgba(0, 0, 0, .82);
             backdrop-filter: blur(8px);
             display: none;
             align-items: center;
@@ -577,6 +572,9 @@
             background: #1b1b1b;
             color: white;
             font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal h2 {
@@ -585,8 +583,8 @@
         }
 
         .modal-subtitle {
-            color: #888;
-            font-size: 13px;
+            color: #aaa;
+            font-size: 14px;
             margin-bottom: 25px;
         }
 
@@ -614,6 +612,7 @@
             background: #171717;
             cursor: pointer;
             transition: .25s;
+            color: #eee;
         }
 
         .opcao:hover {
@@ -667,7 +666,7 @@
             border: 1px solid #3c2519;
             border-radius: 12px;
             color: #ddd;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
         }
 
@@ -733,6 +732,9 @@
             width: 38px;
             height: 38px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .cart-items {
@@ -747,7 +749,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: #888;
             text-align: center;
         }
 
@@ -771,12 +773,13 @@
         }
 
         .cart-item h4 {
-            font-size: 14px;
+            font-size: 15px;
+            color: #fff;
         }
 
         .cart-item small {
             display: block;
-            color: #777;
+            color: #aaa;
             line-height: 1.5;
             margin-top: 5px;
         }
@@ -801,6 +804,9 @@
             background: #292929;
             color: white;
             border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .remove-btn {
@@ -829,8 +835,8 @@
 
         .checkout label {
             display: block;
-            color: #aaa;
-            font-size: 12px;
+            color: #ccc;
+            font-size: 13px;
             margin-bottom: 7px;
         }
 
@@ -846,8 +852,9 @@
             border-radius: 9px;
             background: #171717;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             cursor: pointer;
+            color: #ddd;
         }
 
         .checkout-option input {
@@ -874,8 +881,8 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-            color: #999;
-            font-size: 13px;
+            color: #aaa;
+            font-size: 14px;
         }
 
         .total-line.final {
@@ -904,41 +911,146 @@
             background: #20bd50;
         }
 
+        /* FOOTER STYLES */
+        footer {
+            background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+            border-top: 1px solid rgba(255, 60, 0, 0.25);
+            padding: 45px 20px 25px;
+            text-align: center;
+            color: #bcbcbc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #ffd000, #ff3b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
+
+        footer p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #ccc;
+            margin: 0;
+        }
+
+        footer .endereco,
+        footer .telefone {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        footer .telefone {
+            margin-bottom: 12px;
+        }
+
+        footer .copyright {
+            width: 100%;
+            max-width: 500px;
+            font-size: 12px;
+            color: #777;
+            margin-top: 12px;
+            padding-top: 18px;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* RESPONSIVO / CELULAR */
+        @media (max-width: 1000px) {
+            nav { gap: 15px; }
+            .produtos { grid-template-columns: repeat(2, 1fr); }
+            .promo-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 750px) {
             #promocoes, #salgadas, #doces, #bebidas {
                 scroll-margin-top: 125px;
             }
             body { overflow-x: hidden; }
-            header { height: 68px; padding: 0 14px; }
+            header { height: 68px; padding: 0 16px; }
             .logo { min-width: auto; gap: 8px; }
-            .logo-icon { width: 38px; height: 38px; font-size: 19px; }
-            .logo-text strong { font-size: 19px; }
-            .logo-text span { font-size: 7px; letter-spacing: 3px; }
+            .logo-icon { width: 40px; height: 40px; font-size: 19px; }
+            .logo-text strong { font-size: 20px; }
+            .logo-text span { font-size: 7.5px; letter-spacing: 2.5px; }
             nav {
-                position: fixed; top: 68px; left: 0; width: 100%; height: 46px;
+                position: fixed; top: 68px; left: 0; width: 100%; height: 48px;
                 display: flex; align-items: center; gap: 8px; padding: 0 12px;
                 background: rgba(8, 8, 8, 0.98); border-bottom: 1px solid rgba(255, 60, 0, 0.25);
                 overflow-x: auto; overflow-y: hidden; white-space: nowrap; z-index: 999;
             }
             nav a {
                 flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
-                min-height: 34px; padding: 7px 12px; border-radius: 20px; background: #151515;
-                border: 1px solid #292929; font-size: 12px; font-weight: 800;
+                min-height: 34px; padding: 7px 14px; border-radius: 20px; background: #151515;
+                border: 1px solid #292929; font-size: 12.5px; font-weight: 800;
             }
-            .hero { padding: 135px 18px 55px; text-align: center; }
+            .hero { padding: 135px 20px 55px; text-align: center; }
             .hero-content { width: 100%; }
-            .hero h1 { font-size: clamp(42px, 13vw, 62px); }
-            .hero-pizza { position: relative; width: 100%; height: 190px; font-size: 135px; }
-            .promocoes, .cardapio { padding: 60px 0; }
-            .produtos { display: flex; flex-direction: column; gap: 16px; padding: 3px 18px 12px; }
-            .produto { width: 100%; display: flex; flex-direction: column; border-radius: 17px; }
-            .produto-img { height: 145px; }
-        }
+            .hero h1 { font-size: clamp(38px, 11vw, 55px); letter-spacing: -1.5px; }
+            .hero-pizza { position: relative; width: 100%; height: 180px; font-size: 120px; right: 0; top: 0; transform: none; animation: none; margin-top: 20px; }
+            
+            /* Ajuste crucial de espaçamento nas seções */
+            .promocoes, .cardapio { padding: 45px 16px; }
+            
+            .categoria-header {
+                padding-left: 4px;
+                padding-right: 4px;
+                margin-bottom: 22px;
+            }
+            
+            .categoria-header h2 {
+                font-size: 24px;
+            }
+            
+            .categoria-header p {
+                font-size: 14px;
+                color: #e0e0e0;
+                margin-top: 4px;
+            }
+            
+            .promo-grid { grid-template-columns: 1fr; gap: 16px; }
+            .promo-card { padding: 22px; }
 
-        @media (max-width: 1000px) {
-            nav { gap: 15px; }
-            .produtos { grid-template-columns: repeat(3, 1fr); }
-            .promo-grid { grid-template-columns: repeat(2, 1fr); }
+            .produtos { 
+                grid-template-columns: 1fr; 
+                gap: 18px; 
+                padding: 0; 
+            }
+            
+            .produto { 
+                width: 100%; 
+                border-radius: 18px;
+                background: #121212;
+            }
+            
+            .produto-img { 
+                height: 190px; 
+                padding: 14px;
+            }
+            
+            .produto-info {
+                padding: 16px 18px 18px;
+            }
+
+            .produto-info h3 {
+                font-size: 19px;
+            }
+
+            .produto-info p {
+                font-size: 13.5px;
+                min-height: auto;
+                color: #c5c5c5;
+                margin-bottom: 16px;
+            }
+
+            .sabores-grande {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -949,7 +1061,7 @@
 <header>
    <a href="#inicio" class="logo">
     <div class="logo-icon">
-        <img src="HOTPIZZA LOGOMARCA PROJETO CIRCULAR.png" alt="Logo da Hot Pizza">
+        <img src="HOTPIZZA LOGOMARCA PROJETO CIRCULAR.png" alt="Logo da Hot Pizza" onerror="this.src='https://placehold.co/100x100/ff3c00/ffffff?text=HOT';">
     </div>
     <div class="logo-text">
         <strong>HOT PIZZA</strong>
@@ -964,7 +1076,7 @@
         <a href="#promocoes">🔥 Promoções</a>
     </nav>
 
-    <button class="cart-header" onclick="abrirCarrinho()">
+    <button class="cart-header" onclick="abrirCarrinho()" aria-label="Abrir Carrinho">
         🛒
         <span class="cart-count" id="cartCount">0</span>
     </button>
@@ -989,27 +1101,39 @@
 
     <div class="promo-grid">
         <div class="promo-card">
-            <div class="promo-label">🔥 COMBO FAMÍLIA</div>
-            <h3>2 Pizzas Grandes</h3>
-            <p>2 Pizzas Grandes + Guaraná Antarctica 2 Litros</p>
-            <div class="promo-price">R$ 99,90</div>
-            <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
+            <div>
+                <div class="promo-label">🔥 COMBO FAMÍLIA</div>
+                <h3>2 Pizzas Grandes</h3>
+                <p>2 Pizzas Grandes + Guaraná Antarctica 2 Litros</p>
+            </div>
+            <div>
+                <div class="promo-price">R$ 99,90</div>
+                <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
+            </div>
         </div>
 
         <div class="promo-card">
-            <div class="promo-label">⭐ MAIS PEDIDA</div>
-            <h3>Combo Casal</h3>
-            <p>1 Pizza Grande Salgada + 1 Pizza Doce + Coca-Cola 2L</p>
-            <div class="promo-price">R$ 79,90</div>
-            <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
+            <div>
+                <div class="promo-label">⭐ MAIS PEDIDA</div>
+                <h3>Combo Casal</h3>
+                <p>1 Pizza Grande Salgada + 1 Pizza Doce + Coca-Cola 2L</p>
+            </div>
+            <div>
+                <div class="promo-price">R$ 79,90</div>
+                <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
+            </div>
         </div>
 
         <div class="promo-card">
-            <div class="promo-label">🍫 PARA FINALIZAR</div>
-            <h3>Combo Individual</h3>
-            <p>1 Pizza Pequena + Poty Guaraná 2 Litros</p>
-            <div class="promo-price">R$ 48,90</div>
-            <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
+            <div>
+                <div class="promo-label">🍫 PARA FINALIZAR</div>
+                <h3>Combo Individual</h3>
+                <p>1 Pizza Pequena + Poty Guaraná 2 Litros</p>
+            </div>
+            <div>
+                <div class="promo-price">R$ 48,90</div>
+                <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
+            </div>
         </div>
     </div>
 </section>
@@ -1029,7 +1153,7 @@
         <div class="produtos" id="listaSalgadas">
 
             <div class="produto" data-nome="Margherita" data-preco-pequena="42.00" data-preco-grande="60.00">
-                <div class="produto-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Pizza Margherita" loading="lazy"></div>
+                <div class="produto-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg" alt="Pizza Margherita" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Margherita</h3>
                     <p>Molho, mussarela, tomate, manjericão, parmesão, orégano e azeitonas</p>
@@ -1373,22 +1497,38 @@
         <div class="produtos" id="listaDoces">
             <div class="produto" data-nome="Dois Amores" data-preco="50.00">
                 <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxvPyZLQfx-Ma1kw3wf2_AZm0u-v-Wbm0f2_gMzOPIz2w7zN8k4h0xSsx&s=10" alt="Pizza Dois Amores" loading="lazy"></div>
-                <div class="produto-info"><h3>Dois Amores</h3><p>Chocolate ao leite e chocolate branco</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Dois Amores</h3>
+                    <p>Chocolate ao leite e chocolate branco</p>
+                    <div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Banana Nevada" data-preco="50.00">
                 <div class="produto-img"><img src="https://harald.com.br/wp-content/uploads/2022/11/pizza-de-banana-e-chocolate-branco-imagem-a-esquerda-receitas-960x440-1.jpg" alt="Pizza Banana Nevada" loading="lazy"></div>
-                <div class="produto-info"><h3>Banana Nevada</h3><p>Banana, chocolate branco e açúcar</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Banana Nevada</h3>
+                    <p>Banana, chocolate branco e açúcar</p>
+                    <div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Chocolate com Granulado" data-preco="50.00">
                 <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTf_Fgm3491pe1xSKqL6mNhqehvm1fPkglRwlnaKB1EAIzcj5Hb7kUewz6&s=10" alt="Pizza Chocolate com Granulado" loading="lazy"></div>
-                <div class="produto-info"><h3>Chocolate com Granulado</h3><p>Chocolate ao leite derretido e granulado</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Chocolate com Granulado</h3>
+                    <p>Chocolate ao leite derretido e granulado</p>
+                    <div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Romeu e Julieta" data-preco="50.00">
                 <div class="produto-img"><img src="https://mrteddypizza.com.br/wp-content/uploads/2024/03/28092018-IMG_9784-scaled.jpg" alt="Pizza Romeu e Julieta" loading="lazy"></div>
-                <div class="produto-info"><h3>Romeu e Julieta</h3><p>Queijo mussarela e goiabada cremosa</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Romeu e Julieta</h3>
+                    <p>Queijo mussarela e goiabada cremosa</p>
+                    <div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div>
+                </div>
             </div>
         </div>
     </div>
@@ -1405,32 +1545,56 @@
         <div class="produtos" id="listaBebidas">
             <div class="produto" data-nome="Coca-Cola 2 Litros" data-preco="13.00">
                 <div class="produto-img"><img src="https://images.tcdn.com.br/img/img_prod/1115696/coca_cola_original_lata_350ml_27_1_152c3b66fb7a84db006d3238b116cb50.png" alt="Coca-Cola 2 Litros" loading="lazy"></div>
-                <div class="produto-info"><h3>Coca-Cola 2 Litros</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Coca-Cola 2 Litros</h3>
+                    <p>Refrigerante 2L</p>
+                    <div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Coca-Cola 2 Litros Zero" data-preco="13.00">
                 <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXx7ooCm5nn6SLF5p-DxeVxxVm5tkZ0nKI6fSAFq-vmw&s=10" alt="Coca-Cola 2 Litros Zero" loading="lazy"></div>
-                <div class="produto-info"><h3>Coca-Cola 2 Litros Zero</h3><p>Refrigerante 2L zero açúcar</p><div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Coca-Cola 2 Litros Zero</h3>
+                    <p>Refrigerante 2L zero açúcar</p>
+                    <div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Guaraná Antarctica 2L" data-preco="12.00">
                 <div class="produto-img"><img src="https://naturalterra.vtexassets.com/arquivos/ids/164719/Refrigerante-Guarana-Antarctica-2L.jpg?v=638671094102970000" alt="Guaraná Antarctica 2L" loading="lazy"></div>
-                <div class="produto-info"><h3>Guaraná Antarctica 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Guaraná Antarctica 2L</h3>
+                    <p>Refrigerante 2L</p>
+                    <div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Fanta 2L" data-preco="12.00">
                 <div class="produto-img"><img src="https://zaffari.vtexassets.com/arquivos/ids/262965/1010783-00.jpg?v=638671108395570000" alt="Fanta 2L" loading="lazy"></div>
-                <div class="produto-info"><h3>Fanta 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Fanta 2L</h3>
+                    <p>Refrigerante 2L</p>
+                    <div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Sprite 2L" data-preco="12.00">
                 <div class="produto-img"><img src="https://storetheme.vtexassets.com/unsafe/800x800/center/middle/https%3A%2F%2Fsantaluzia.vtexassets.com%2Farquivos%2Fids%2F995553%2F3164659.png%3Fv%3D638399073326630000" alt="Sprite 2L" loading="lazy"></div>
-                <div class="produto-info"><h3>Sprite 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Sprite 2L</h3>
+                    <p>Refrigerante 2L</p>
+                    <div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div>
+                </div>
             </div>
 
             <div class="produto" data-nome="Poty Guaraná 2L" data-preco="8.00">
                 <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbjK547ZNkk1Ets7QhAaNvfOSJePQ-aUhwmj33JNP2Itp9TjaxHSLzoGkd&s=10" alt="Poty Guaraná 2L" loading="lazy"></div>
-                <div class="produto-info"><h3>Poty Guaraná 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 8,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+                <div class="produto-info">
+                    <h3>Poty Guaraná 2L</h3>
+                    <p>Refrigerante 2L</p>
+                    <div class="produto-bottom"><span class="preco">R$ 8,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div>
+                </div>
             </div>
         </div>
     </div>
@@ -1439,7 +1603,7 @@
 <!-- MODAL PERSONALIZAÇÃO -->
 <div class="modal-bg" id="modalBg">
     <div class="modal">
-        <button class="close-modal" onclick="fecharModal()">✕</button>
+        <button class="close-modal" onclick="fecharModal()" aria-label="Fechar Modal">✕</button>
 
         <h2>🍕 Personalize sua pizza</h2>
         <p class="modal-subtitle" id="modalProduto">Escolha o tamanho e os sabores da sua pizza.</p>
@@ -1468,7 +1632,7 @@
         <!-- SABORES GRANDE -->
         <div class="grupo sabores-grande" id="saboresGrande">
             <div>
-                <h3>🍕 1º sabor <small style="color:#777;font-weight:normal;">(já selecionado)</small></h3>
+                <h3>🍕 1º sabor <small style="color:#aaa;font-weight:normal;">(já selecionado)</small></h3>
                 <select class="campo" id="saborGrande1"></select>
             </div>
             <div>
@@ -1519,7 +1683,7 @@
 <aside class="carrinho" id="carrinho">
     <div class="cart-top">
         <h2>🛒 Seu pedido</h2>
-        <button class="close-cart" onclick="fecharCarrinho()">✕</button>
+        <button class="close-cart" onclick="fecharCarrinho()" aria-label="Fechar Carrinho">✕</button>
     </div>
 
     <div class="cart-items" id="cartItems">
@@ -1781,27 +1945,10 @@
     }
 
     function mostrarCategoria(categoria) {
-        const salgadas = document.getElementById("salgadas");
-        const doces = document.getElementById("doces");
-        const bebidas = document.getElementById("bebidas");
-        const promocoes = document.getElementById("promocoes");
-
-        if (!salgadas || !doces) return;
-
-        if (categoria === "salgadas") {
-            salgadas.style.display = "";
-            doces.style.display = "none";
-            if (bebidas) bebidas.style.display = "none";
-            if (promocoes) promocoes.style.display = "none";
-            salgadas.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-
-        if (categoria === "doces") {
-            salgadas.style.display = "none";
-            doces.style.display = "";
-            if (bebidas) bebidas.style.display = "none";
-            if (promocoes) promocoes.style.display = "none";
-            doces.scrollIntoView({ behavior: "smooth", block: "start" });
+        mostrarTodasCategorias();
+        const alvo = document.getElementById(categoria);
+        if (alvo) {
+            alvo.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     }
 
@@ -2024,7 +2171,7 @@
             mensagem += `💵 *${informacaoTroco}*%0A`;
         }
 
-        const telefone = "5517991981517";
+        const telefone = "5517991884163";
         const url = `https://wa.me/${telefone}?text=${mensagem}`;
         window.open(url, "_blank");
     }
