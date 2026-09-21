@@ -9,56 +9,55 @@
     <meta name="description" content="Hot Pizza - Pizzas, bebidas e muito sabor. Faça seu pedido online.">
 
     <style>
-
         /* FOOTER STYLES */
-footer {
-    background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
-    border-top: 1px solid rgba(255, 60, 0, 0.25);
-    padding: 45px 20px 25px;
-    text-align: center;
-    color: #bcbcbc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
+        footer {
+            background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+            border-top: 1px solid rgba(255, 60, 0, 0.25);
+            padding: 45px 20px 25px;
+            text-align: center;
+            color: #bcbcbc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
 
-.footer-logo {
-    font-size: 26px;
-    font-weight: 900;
-    letter-spacing: -0.5px;
-    background: linear-gradient(90deg, #ffd000, #ff3b00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 4px;
-}
+        .footer-logo {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #ffd000, #ff3b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px;
+        }
 
-footer p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #aaa;
-    margin: 0;
-}
+        footer p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #aaa;
+            margin: 0;
+        }
 
-footer .endereco,
-footer .telefone {
-    color: #e0e0e0;
-    font-weight: 500;
-}
+        footer .endereco,
+        footer .telefone {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
 
-footer .telefone {
-    margin-bottom: 12px;
-}
+        footer .telefone {
+            margin-bottom: 12px;
+        }
 
-footer .copyright {
-    width: 100%;
-    max-width: 500px;
-    font-size: 12px;
-    color: #666;
-    margin-top: 12px;
-    padding-top: 18px;
-    border-top: 1px solid #1a1a1a;
-}
+        footer .copyright {
+            width: 100%;
+            max-width: 500px;
+            font-size: 12px;
+            color: #666;
+            margin-top: 12px;
+            padding-top: 18px;
+            border-top: 1px solid #1a1a1a;
+        }
 
         .logo-icon img {
             width: 40px;
@@ -990,26 +989,26 @@ footer .copyright {
 
     <div class="promo-grid">
         <div class="promo-card">
-            <div class="promo-label">🔥 PROMOÇÃO</div>
-            <!-- <h3>Combo Hot</h3>
-            <p>Pizza + bebida para deixar sua noite ainda mais gostosa.</p>
-            <div class="promo-price">Confira no pedido</div> -->
+            <div class="promo-label">🔥 COMBO FAMÍLIA</div>
+            <h3>2 Pizzas Grandes</h3>
+            <p>2 Pizzas Grandes + Guaraná Antarctica 2 Litros</p>
+            <div class="promo-price">R$ 99,90</div>
             <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
         </div>
 
         <div class="promo-card">
             <div class="promo-label">⭐ MAIS PEDIDA</div>
-            <!-- <h3>Pizza da Casa</h3>
-            <p>Uma combinação especial preparada pela Hot Pizza.</p>
-            <div class="promo-price">Consulte</div> -->
+            <h3>Combo Casal</h3>
+            <p>1 Pizza Grande Salgada + 1 Pizza Doce + Coca-Cola 2L</p>
+            <div class="promo-price">R$ 79,90</div>
             <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
         </div>
 
         <div class="promo-card">
             <div class="promo-label">🍫 PARA FINALIZAR</div>
-            <!-- <h3>Pizzas Doces</h3>
-            <p>Chocolate, banana, Romeu e Julieta e muito mais.</p>
-            <div class="promo-price">A partir de R$ 50,00</div> -->
+            <h3>Combo Individual</h3>
+            <p>1 Pizza Pequena + Poty Guaraná 2 Litros</p>
+            <div class="promo-price">R$ 48,90</div>
             <button class="promo-buy-btn" onclick="comprarPromocao(this)" type="button">🛒 COMPRAR PROMOÇÃO</button>
         </div>
     </div>
@@ -1029,149 +1028,14 @@ footer .copyright {
 
         <div class="produtos" id="listaSalgadas">
 
-            <div class="produto" data-nome="Atum" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://receitadaboa.com.br/wp-content/uploads/2024/09/mini-pizza-de-atum-ALLEKO-iStock-1.jpg" alt="Pizza Atum" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Atum</h3>
-                    <p>Molho, mussarela, atum, cebola, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Bauru" data-preco-pequena="55.00" data-preco-grande="60.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxwe8vy8BRRi9vYJ3PyZFvkRtnMFQLz7n2P-QcQxSsKKwGpgahGVfRtbk&s=10" alt="Pizza Bauru" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Bauru</h3>
-                    <p>Molho, mussarela, presunto, tomate, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 55,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 60,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Bacon" data-preco-pequena="55.00" data-preco-grande="60.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTurvl-q7hl8M0d7s4zfq7fAXWyb6EERup-WlzXyqP-Cbsimp1Msl9uuTh3&s=10" alt="Pizza Bacon" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Bacon</h3>
-                    <p>Molho, mussarela, bacon, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 55,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 60,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Brócolis Bacon" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://superpizzapan.com.br/wp-content/uploads/2024/04/super-brocolis-com-bacon.png" alt="Pizza Brócolis Bacon" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Brócolis Bacon</h3>
-                    <p>Molho, mussarela, brócolis, bacon, alho frito, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Calabresa" data-preco-pequena="50.00" data-preco-grande="55.00">
-                <div class="produto-img"><img src="https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg" alt="Pizza Calabresa" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Calabresa</h3>
-                    <p>Molho, mussarela, calabresa, cebola, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 50,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 55,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Frango com Catupiry" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://www.ogastronomo.com.br/upload/213355327-pizza-de-frango-com-catupiry.jpg" alt="Pizza Frango com Catupiry" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Frango com Catupiry</h3>
-                    <p>Molho, mussarela, frango desfiado, catupiry, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Lombinho com Catupiry" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://carrefourbrfood.vtexassets.com/arquivos/ids/194071448/pizza-de-lombo-com-catupiry-seara-460g-4.jpg?v=638888023835170000" alt="Pizza Lombinho com Catupiry" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Lombinho com Catupiry</h3>
-                    <p>Molho, mussarela, lombinho, catupiry, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="LBB" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxn8RU1ckPqSfUw1N9f7t7ooX3dn_Kcgo1e-fGJd-eK5dfoG7zWlGhIr8&s=10" alt="Pizza LBB" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>LBB</h3>
-                    <p>Molho, mussarela, lombinho, banana, bacon, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Mussarela" data-preco-pequena="50.00" data-preco-grande="55.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsmpHMw5OcjgO5cssr0gjA9yEWih8O5i-STj8BqG-3Jt863tlyiJP5VzE&s=10" alt="Pizza Mussarela" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Mussarela</h3>
-                    <p>Molho, mussarela, tomate, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 50,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 55,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Margherita" data-preco-pequena="55.00" data-preco-grande="60.00">
+            <div class="produto" data-nome="Margherita" data-preco-pequena="42.00" data-preco-grande="60.00">
                 <div class="produto-img"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Pizza Margherita" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Margherita</h3>
                     <p>Molho, mussarela, tomate, manjericão, parmesão, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 55,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 42,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 60,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1179,44 +1043,14 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Pizza do Chefe" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXgnS0KlA0Vj6J1LoAXeDQbctSSt5WxK181-FXLgnoQQ&s=10" alt="Pizza Pizza do Chefe" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Pizza do Chefe</h3>
-                    <p>Molho, mussarela, lombinho, bacon, cheddar, batata palha e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Portuguesa" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9TE6EZTJFu8JLr0Gte7Qwx_9BbWt7Ibvrun6-BvkvxZdf3l1I7N_8TRbj&s=10" alt="Pizza Portuguesa" loading="lazy"></div>
-                <div class="produto-info">
-                    <h3>Portuguesa</h3>
-                    <p>Molho, mussarela, presunto, ovo, palmito, ervilhas, cebola, orégano e azeitonas</p>
-                    <div class="produto-bottom">
-                        <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
-                        </div>
-                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="produto" data-nome="Pepperoni" data-preco-pequena="65.00" data-preco-grande="70.00">
+            <div class="produto" data-nome="Pepperoni" data-preco-pequena="48.00" data-preco-grande="70.00">
                 <div class="produto-img"><img src="https://static.itdg.com.br/images/640-400/cdee99b2fbe48919a5537f94f76dda62/shutterstock-1822238342-1-.jpg" alt="Pizza Pepperoni" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Pepperoni</h3>
                     <p>Molho, mussarela, pepperoni e orégano</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 65,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 48,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 70,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1224,14 +1058,74 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Quatro Queijos" data-preco-pequena="67.00" data-preco-grande="72.00">
+            <div class="produto" data-nome="Mussarela" data-preco-pequena="42.00" data-preco-grande="55.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsmpHMw5OcjgO5cssr0gjA9yEWih8O5i-STj8BqG-3Jt863tlyiJP5VzE&s=10" alt="Pizza Mussarela" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Mussarela</h3>
+                    <p>Molho, mussarela, tomate, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 42,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 55,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Frango com Catupiry" data-preco-pequena="45.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://www.ogastronomo.com.br/upload/213355327-pizza-de-frango-com-catupiry.jpg" alt="Pizza Frango com Catupiry" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Frango com Catupiry</h3>
+                    <p>Molho, mussarela, frango desfiado, catupiry, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 45,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Calabresa" data-preco-pequena="40.00" data-preco-grande="55.00">
+                <div class="produto-img"><img src="https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg" alt="Pizza Calabresa" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Calabresa</h3>
+                    <p>Molho, mussarela, calabresa, cebola, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 40,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 55,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Atum Acebolado" data-preco-pequena="50.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://receitadaboa.com.br/wp-content/uploads/2024/09/mini-pizza-de-atum-ALLEKO-iStock-1.jpg" alt="Pizza Atum Acebolado" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Atum Acebolado</h3>
+                    <p>Molho, mussarela, atum, cebola, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 50,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Quatro Queijos" data-preco-pequena="50.00" data-preco-grande="72.00">
                 <div class="produto-img"><img src="https://revistaanamaria.com.br/wp-content/uploads/2024/07/9-3.jpg" alt="Pizza Quatro Queijos" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Quatro Queijos</h3>
                     <p>Molho, mussarela, provolone, catupiry, parmesão, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 67,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 50,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 72,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1239,14 +1133,119 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Quatro Carnes" data-preco-pequena="65.00" data-preco-grande="70.00">
+            <div class="produto" data-nome="Brócolis com Bacon" data-preco-pequena="43.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://superpizzapan.com.br/wp-content/uploads/2024/04/super-brocolis-com-bacon.png" alt="Pizza Brócolis com Bacon" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Brócolis com Bacon</h3>
+                    <p>Molho, mussarela, brócolis, bacon, alho frito, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 43,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="LBB" data-preco-pequena="40.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxn8RU1ckPqSfUw1N9f7t7ooX3dn_Kcgo1e-fGJd-eK5dfoG7zWlGhIr8&s=10" alt="Pizza LBB" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>LBB</h3>
+                    <p>Molho, mussarela, lombinho, banana, bacon, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 40,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Pizza do Chefe" data-preco-pequena="47.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXgnS0KlA0Vj6J1LoAXeDQbctSSt5WxK181-FXLgnoQQ&s=10" alt="Pizza do Chefe" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Pizza do Chefe</h3>
+                    <p>Molho, mussarela, lombinho, bacon, cheddar, batata palha e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 47,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Bacon" data-preco-pequena="47.00" data-preco-grande="60.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTurvl-q7hl8M0d7s4zfq7fAXWyb6EERup-WlzXyqP-Cbsimp1Msl9uuTh3&s=10" alt="Pizza Bacon" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Bacon</h3>
+                    <p>Molho, mussarela, bacon, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 47,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 60,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Portuguesa" data-preco-pequena="47.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9TE6EZTJFu8JLr0Gte7Qwx_9BbWt7Ibvrun6-BvkvxZdf3l1I7N_8TRbj&s=10" alt="Pizza Portuguesa" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Portuguesa</h3>
+                    <p>Molho, mussarela, presunto, ovo, palmito, ervilhas, cebola, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 47,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Bauru" data-preco-pequena="45.00" data-preco-grande="60.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxwe8vy8BRRi9vYJ3PyZFvkRtnMFQLz7n2P-QcQxSsKKwGpgahGVfRtbk&s=10" alt="Pizza Bauru" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Bauru</h3>
+                    <p>Molho, mussarela, presunto, tomate, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 45,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 60,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Pepperoni Acebolado" data-preco-pequena="48.00" data-preco-grande="70.00">
+                <div class="produto-img"><img src="https://static.itdg.com.br/images/640-400/cdee99b2fbe48919a5537f94f76dda62/shutterstock-1822238342-1-.jpg" alt="Pizza Pepperoni Acebolado" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Pepperoni Acebolado</h3>
+                    <p>Molho, mussarela, pepperoni, cebola e orégano</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 48,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 70,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Quatro Carnes" data-preco-pequena="50.00" data-preco-grande="70.00">
                 <div class="produto-img"><img src="https://tanamoda.rcba.app/_core/_uploads/69/2022/08/1907220822jfki756632.jpg" alt="Pizza Quatro Carnes" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Quatro Carnes</h3>
                     <p>Molho, mussarela, lombinho, presunto, calabresa ralada, bacon, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 65,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 50,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 70,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1254,14 +1253,29 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Lombinho da Casa" data-preco-pequena="60.00" data-preco-grande="65.00">
+            <div class="produto" data-nome="Brócolis Bacon e Catupiry" data-preco-pequena="48.00" data-preco-grande="70.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrH6HUiGVSJ0s0THuWY0gW8sz9LrwasReoUzCxQyCYyBWPLK8Pp9EBJJE&s=10" alt="Pizza Brócolis Bacon e Catupiry" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Brócolis Bacon e Catupiry</h3>
+                    <p>Molho, mussarela, brócolis, bacon, catupiry, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 48,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 70,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="produto" data-nome="Lombinho da Casa" data-preco-pequena="45.00" data-preco-grande="65.00">
                 <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU1qZIjtoKd6l9vqLvYLSRPfcbdQCk5xjUOxySOS1yDu6xO2rK_qgkxyJB&s=10" alt="Pizza Lombinho da Casa" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Lombinho da Casa</h3>
                     <p>Molho, mussarela, lombinho, bacon, catupiry, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 45,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1269,14 +1283,14 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Mussarela e Parmesão" data-preco-pequena="60.00" data-preco-grande="65.00">
-                <div class="produto-img"><img src="https://anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-1932-5a1b7911dfda6e3c351c30de564da267.jpg" alt="Pizza Mussarela e Parmesão" loading="lazy"></div>
+            <div class="produto" data-nome="Bauru Cremoso" data-preco-pequena="45.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxwe8vy8BRRi9vYJ3PyZFvkRtnMFQLz7n2P-QcQxSsKKwGpgahGVfRtbk&s=10" alt="Pizza Bauru Cremoso" loading="lazy"></div>
                 <div class="produto-info">
-                    <h3>Mussarela e Parmesão</h3>
-                    <p>Molho, mussarela, parmesão, orégano e azeitonas</p>
+                    <h3>Bauru Cremoso</h3>
+                    <p>Molho, mussarela, presunto, tomate, requeijão cremoso, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 60,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 45,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1284,14 +1298,14 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Brócolis Bacon Catupiry" data-preco-pequena="65.00" data-preco-grande="70.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrH6HUiGVSJ0s0THuWY0gW8sz9LrwasReoUzCxQyCYyBWPLK8Pp9EBJJE&s=10" alt="Pizza Brócolis Bacon Catupiry" loading="lazy"></div>
+            <div class="produto" data-nome="Frango com Bacon" data-preco-pequena="50.00" data-preco-grande="70.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1iuqbvGGTz9InhxVvHGNUrhr7LtyYMUdkCxJ_zVo939A2Acanqd9lU8&s=10" alt="Pizza Frango com Bacon" loading="lazy"></div>
                 <div class="produto-info">
-                    <h3>Brócolis Bacon Catupiry</h3>
-                    <p>Molho, mussarela, brócolis, bacon, catupiry, orégano e azeitonas</p>
+                    <h3>Frango com Bacon</h3>
+                    <p>Molho, mussarela, frango desfiado, bacon crocante, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 65,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 50,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 70,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1299,14 +1313,14 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Cinco Queijos" data-preco-pequena="70.00" data-preco-grande="75.00">
+            <div class="produto" data-nome="Cinco Queijos" data-preco-pequena="55.00" data-preco-grande="75.00">
                 <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0xmNTo9YTOYz1V5OS8f-teSC_vW6B4g77B6sUvwMjB_zUB9ec_GP_9Yrk&s=10" alt="Pizza Cinco Queijos" loading="lazy"></div>
                 <div class="produto-info">
                     <h3>Cinco Queijos</h3>
                     <p>Molho, mussarela, parmesão, gorgonzola, provolone, catupiry, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 70,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 55,00</span>
                             <span class="preco-item"><span>Grande:</span> R$ 75,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
@@ -1314,20 +1328,36 @@ footer .copyright {
                 </div>
             </div>
 
-            <div class="produto" data-nome="Frango Bacon Catupiry" data-preco-pequena="65.00" data-preco-grande="70.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1iuqbvGGTz9InhxVvHGNUrhr7LtyYMUdkCxJ_zVo939A2Acanqd9lU8&s=10" alt="Pizza Frango Bacon Catupiry" loading="lazy"></div>
+            <div class="produto" data-nome="Calabresa com Cheddar" data-preco-pequena="40.00" data-preco-grande="60.00">
+                <div class="produto-img"><img src="https://www.sabornamesa.com.br/media/k2/items/cache/513d7a0ab11e38f7bd117d760146fed3_XL.jpg" alt="Pizza Calabresa com Cheddar" loading="lazy"></div>
                 <div class="produto-info">
-                    <h3>Frango Bacon Catupiry</h3>
-                    <p>Molho, mussarela, frango, bacon, catupiry, orégano e azeitonas</p>
+                    <h3>Calabresa com Cheddar</h3>
+                    <p>Molho, mussarela, calabresa, cheddar cremoso, orégano e azeitonas</p>
                     <div class="produto-bottom">
                         <div class="precos-container">
-                            <span class="preco-item"><span>Pequena:</span> R$ 65,00</span>
-                            <span class="preco-item"><span>Grande:</span> R$ 70,00</span>
+                            <span class="preco-item"><span>Pequena:</span> R$ 40,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 60,00</span>
                         </div>
                         <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
                     </div>
                 </div>
             </div>
+
+            <div class="produto" data-nome="Mussarela e Parmesão" data-preco-pequena="45.00" data-preco-grande="65.00">
+                <div class="produto-img"><img src="https://anamariabrogui.com.br/assets/uploads/receitas/fotos/usuario-1932-5a1b7911dfda6e3c351c30de564da267.jpg" alt="Pizza Mussarela e Parmesão" loading="lazy"></div>
+                <div class="produto-info">
+                    <h3>Mussarela e Parmesão</h3>
+                    <p>Molho, mussarela, parmesão, orégano e azeitonas</p>
+                    <div class="produto-bottom">
+                        <div class="precos-container">
+                            <span class="preco-item"><span>Pequena:</span> R$ 45,00</span>
+                            <span class="preco-item"><span>Grande:</span> R$ 65,00</span>
+                        </div>
+                        <button class="btn-add" type="button" onclick="abrirPersonalizacao(this)">+</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -1341,27 +1371,24 @@ footer .copyright {
         </div>
 
         <div class="produtos" id="listaDoces">
-            <div class="produto" data-nome="Chocolate com Granulado" data-preco="50.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTf_Fgm3491pe1xSKqL6mNhqehvm1fPkglRwlnaKB1EAIzcj5Hb7kUewz6&s=10" alt="Pizza Chocolate com Granulado" loading="lazy"></div>
-                <div class="produto-info"><h3>Chocolate com Granulado</h3><p>Chocolate ao leite derretido e granulado</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
+            <div class="produto" data-nome="Dois Amores" data-preco="50.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxvPyZLQfx-Ma1kw3wf2_AZm0u-v-Wbm0f2_gMzOPIz2w7zN8k4h0xSsx&s=10" alt="Pizza Dois Amores" loading="lazy"></div>
+                <div class="produto-info"><h3>Dois Amores</h3><p>Chocolate ao leite e chocolate branco</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
             </div>
-
 
             <div class="produto" data-nome="Banana Nevada" data-preco="50.00">
                 <div class="produto-img"><img src="https://harald.com.br/wp-content/uploads/2022/11/pizza-de-banana-e-chocolate-branco-imagem-a-esquerda-receitas-960x440-1.jpg" alt="Pizza Banana Nevada" loading="lazy"></div>
                 <div class="produto-info"><h3>Banana Nevada</h3><p>Banana, chocolate branco e açúcar</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
             </div>
 
+            <div class="produto" data-nome="Chocolate com Granulado" data-preco="50.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTf_Fgm3491pe1xSKqL6mNhqehvm1fPkglRwlnaKB1EAIzcj5Hb7kUewz6&s=10" alt="Pizza Chocolate com Granulado" loading="lazy"></div>
+                <div class="produto-info"><h3>Chocolate com Granulado</h3><p>Chocolate ao leite derretido e granulado</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
+            </div>
 
             <div class="produto" data-nome="Romeu e Julieta" data-preco="50.00">
                 <div class="produto-img"><img src="https://mrteddypizza.com.br/wp-content/uploads/2024/03/28092018-IMG_9784-scaled.jpg" alt="Pizza Romeu e Julieta" loading="lazy"></div>
                 <div class="produto-info"><h3>Romeu e Julieta</h3><p>Queijo mussarela e goiabada cremosa</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
-            </div>
-
-
-            <div class="produto" data-nome="Dois Amores" data-preco="50.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxvPyZLQfx-Ma1kw3wf2_AZm0u-v-Wbm0f2_gMzOPIz2w7zN8k4h0xSsx&s=10" alt="Pizza Dois Amores" loading="lazy"></div>
-                <div class="produto-info"><h3>Dois Amores</h3><p>Chocolate com avelã e chocolate branco</p><div class="produto-bottom"><span class="preco">R$ 50,00</span><button class="btn-add" type="button" onclick="adicionarProdutoDireto(this)">+</button></div></div>
             </div>
         </div>
     </div>
@@ -1376,37 +1403,34 @@ footer .copyright {
         </div>
 
         <div class="produtos" id="listaBebidas">
-            <div class="produto" data-nome="Coca-Cola" data-preco="13.00">
-                <div class="produto-img"><img src="https://images.tcdn.com.br/img/img_prod/1115696/coca_cola_original_lata_350ml_27_1_152c3b66fb7a84db006d3238b116cb50.png" alt="Coca-Cola" loading="lazy"></div>
-                <div class="produto-info"><h3>Coca-Cola</h3><p>Refrigerante</p><div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+            <div class="produto" data-nome="Coca-Cola 2 Litros" data-preco="13.00">
+                <div class="produto-img"><img src="https://images.tcdn.com.br/img/img_prod/1115696/coca_cola_original_lata_350ml_27_1_152c3b66fb7a84db006d3238b116cb50.png" alt="Coca-Cola 2 Litros" loading="lazy"></div>
+                <div class="produto-info"><h3>Coca-Cola 2 Litros</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
             </div>
 
-
-            <div class="produto" data-nome="Coca-Cola Zero" data-preco="13.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXx7ooCm5nn6SLF5p-DxeVxxVm5tkZ0nKI6fSAFq-vmw&s=10" alt="Coca-Cola Zero" loading="lazy"></div>
-                <div class="produto-info"><h3>Coca-Cola Zero</h3><p>Refrigerante zero açúcar</p><div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+            <div class="produto" data-nome="Coca-Cola 2 Litros Zero" data-preco="13.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXx7ooCm5nn6SLF5p-DxeVxxVm5tkZ0nKI6fSAFq-vmw&s=10" alt="Coca-Cola 2 Litros Zero" loading="lazy"></div>
+                <div class="produto-info"><h3>Coca-Cola 2 Litros Zero</h3><p>Refrigerante 2L zero açúcar</p><div class="produto-bottom"><span class="preco">R$ 13,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
             </div>
 
-
-            <div class="produto" data-nome="Fanta" data-preco="12.00">
-                <div class="produto-img"><img src="https://zaffari.vtexassets.com/arquivos/ids/262965/1010783-00.jpg?v=638671108395570000" alt="Fanta" loading="lazy"></div>
-                <div class="produto-info"><h3>Fanta</h3><p>Refrigerante</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+            <div class="produto" data-nome="Guaraná Antarctica 2L" data-preco="12.00">
+                <div class="produto-img"><img src="https://naturalterra.vtexassets.com/arquivos/ids/164719/Refrigerante-Guarana-Antarctica-2L.jpg?v=638671094102970000" alt="Guaraná Antarctica 2L" loading="lazy"></div>
+                <div class="produto-info"><h3>Guaraná Antarctica 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
             </div>
 
-
-            <div class="produto" data-nome="Sprite" data-preco="12.00">
-                <div class="produto-img"><img src="https://storetheme.vtexassets.com/unsafe/800x800/center/middle/https%3A%2F%2Fsantaluzia.vtexassets.com%2Farquivos%2Fids%2F995553%2F3164659.png%3Fv%3D638399073326630000" alt="Sprite" loading="lazy"></div>
-                <div class="produto-info"><h3>Sprite</h3><p>Refrigerante</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+            <div class="produto" data-nome="Fanta 2L" data-preco="12.00">
+                <div class="produto-img"><img src="https://zaffari.vtexassets.com/arquivos/ids/262965/1010783-00.jpg?v=638671108395570000" alt="Fanta 2L" loading="lazy"></div>
+                <div class="produto-info"><h3>Fanta 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
             </div>
 
-
-            <div class="produto" data-nome="Guaraná Antarctica" data-preco="12.00">
-                <div class="produto-img"><img src="https://naturalterra.vtexassets.com/arquivos/ids/164719/Refrigerante-Guarana-Antarctica-2L.jpg?v=638671094102970000" alt="Guaraná Antarctica" loading="lazy"></div>
-                <div class="produto-info"><h3>Guaraná Antarctica</h3><p>Refrigerante</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+            <div class="produto" data-nome="Sprite 2L" data-preco="12.00">
+                <div class="produto-img"><img src="https://storetheme.vtexassets.com/unsafe/800x800/center/middle/https%3A%2F%2Fsantaluzia.vtexassets.com%2Farquivos%2Fids%2F995553%2F3164659.png%3Fv%3D638399073326630000" alt="Sprite 2L" loading="lazy"></div>
+                <div class="produto-info"><h3>Sprite 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 12,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
             </div>
-            <div class="produto" data-nome="Guaraná Poty" data-preco="8.00">
-                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbjK547ZNkk1Ets7QhAaNvfOSJePQ-aUhwmj33JNP2Itp9TjaxHSLzoGkd&s=10" alt="Guaraná Poty" loading="lazy"></div>
-                <div class="produto-info"><h3>Guaraná Poty</h3><p>Refrigerante</p><div class="produto-bottom"><span class="preco">R$ 8,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
+
+            <div class="produto" data-nome="Poty Guaraná 2L" data-preco="8.00">
+                <div class="produto-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbjK547ZNkk1Ets7QhAaNvfOSJePQ-aUhwmj33JNP2Itp9TjaxHSLzoGkd&s=10" alt="Poty Guaraná 2L" loading="lazy"></div>
+                <div class="produto-info"><h3>Poty Guaraná 2L</h3><p>Refrigerante 2L</p><div class="produto-bottom"><span class="preco">R$ 8,00</span><button class="btn-add" type="button" onclick="adicionarBebida(this)">+</button></div></div>
             </div>
         </div>
     </div>
@@ -1478,8 +1502,8 @@ footer .copyright {
 
         <!-- OBSERVAÇÃO -->
         <div class="grupo">
-            <h3>📝 Observação</h3>
-            <textarea class="campo" id="observacaoPizza" rows="3" placeholder="Ex: sem cebola, pouco queijo..."></textarea>
+            <h3>📝 Observação / Ingredientes adicionais</h3>
+            <textarea class="campo" id="observacaoPizza" rows="3" placeholder="Ex: sem cebola, extra catupiry, retirar azeitona..."></textarea>
         </div>
 
         <!-- RESUMO -->
@@ -1746,6 +1770,16 @@ footer .copyright {
         abrirCarrinho();
     }
 
+    function comprarPromocao(botao) {
+        const card = botao.closest(".promo-card");
+        const titulo = card.querySelector("h3")?.textContent || card.querySelector(".promo-label")?.textContent || "Promoção";
+        const precoTexto = card.querySelector(".promo-price")?.textContent.replace("R$", "").replace(".", "").replace(",", ".").trim() || "0";
+        const preco = parseFloat(precoTexto) || 0;
+        carrinho.push({ tipo: "promocao", nome: titulo, preco: preco, quantidade: 1 });
+        atualizarCarrinho();
+        abrirCarrinho();
+    }
+
     function mostrarCategoria(categoria) {
         const salgadas = document.getElementById("salgadas");
         const doces = document.getElementById("doces");
@@ -1990,7 +2024,7 @@ footer .copyright {
             mensagem += `💵 *${informacaoTroco}*%0A`;
         }
 
-        const telefone = "5517991884163";
+        const telefone = "5517991981517";
         const url = `https://wa.me/${telefone}?text=${mensagem}`;
         window.open(url, "_blank");
     }
